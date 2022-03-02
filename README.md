@@ -1,16 +1,7 @@
-# flutter_woo_commerce_getx_ducafecat
+# flutter woo commerce getx 电商客户端
 
-A new Flutter project.
+## 初始包
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+flutter pub add get intl flutter_screenutil pull_to_refresh flutter_easyloading modal_bottom_sheet dio dio_cookie_manager cookie_jar cached_network_image flutter_cache_manager crypto share device_info package_info permission_handler sentry carousel_slider flutter_svg validatorless flutter_multi_formatter pinput flutter_picker another_xlider photo_view wechat_assets_picker wechat_camera_picker country_code_picker dropdown_button2 shared_preferences
+```
