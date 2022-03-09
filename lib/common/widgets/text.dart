@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-/// 文字 Widget
+/// 文字组件
 class TextWidget extends StatelessWidget {
   final String text;
   final TextStyle? style;
