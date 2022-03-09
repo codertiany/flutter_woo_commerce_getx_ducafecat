@@ -1,7 +1,9 @@
 part of 'index.dart';
 
+/// 手势 tap
 typedef GestureOnTapChangeCallback = void Function(bool tapState);
 
+/// 扩展 Widget
 extension ExWidget on Widget {
   /// 内间距
   Widget padding({

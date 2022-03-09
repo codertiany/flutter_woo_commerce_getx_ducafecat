@@ -1,5 +1,6 @@
 part of 'index.dart';
 
+/// 扩展 Icon
 extension ExIcon<T extends Icon> on T {
   T copyWith({
     double? size,
