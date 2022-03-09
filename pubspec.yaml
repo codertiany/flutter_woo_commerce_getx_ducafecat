@@ -27,76 +27,74 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+  # 滑块选择
+  another_xlider: ^1.0.0
+  # 缓存网络图片
+  cached_network_image: ^3.1.0
+  # 滑块
+  carousel_slider: ^4.0.0
+  cookie_jar: ^3.0.1
+  # 国家、城市
+  country_code_picker: ^2.0.2
+  # 加密安全 SHA
+  crypto: ^3.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # 设备信息
+  device_info: ^2.0.2
+  # http
+  dio: ^4.0.0
+  dio_cookie_manager: ^2.0.0
+  # 下拉菜单按钮
+  dropdown_button2: ^1.1.1
+  flutter:
+    sdk: flutter
+  # 缓存管理
+  flutter_cache_manager: ^3.1.2
+  # easyloading
+  flutter_easyloading: ^3.0.3
+  flutter_localizations:
+    sdk: flutter
+  # 格式化显示
+  flutter_multi_formatter: ^2.5.1
+  # 选择
+  flutter_picker: ^2.0.2
+  # 屏幕适配
+  flutter_screenutil: ^5.0.0+2
+  # svg
+  flutter_svg: ^1.0.3
 
   # GetX
   get: ^4.6.1
   # 日期
   intl: ^0.17.0
-  # 屏幕适配
-  flutter_screenutil: ^5.0.0+2
-  # 下拉刷新
-  pull_to_refresh: ^2.0.0
-  # easyloading
-  flutter_easyloading: ^3.0.3
   # 底部弹出框
   modal_bottom_sheet: ^2.0.0
-  # http
-  dio: ^4.0.0
-  dio_cookie_manager: ^2.0.0
-  cookie_jar: ^3.0.1
-  # 本地存储
-  shared_preferences: ^2.0.8
-  # 缓存网络图片
-  cached_network_image: ^3.1.0
-  # 缓存管理
-  flutter_cache_manager: ^3.1.2
-  # 加密安全 SHA
-  crypto: ^3.0.1
-  # 分享
-  share: ^2.0.4
-  # 设备信息
-  device_info: ^2.0.2
   # 包信息
   package_info: ^2.0.2
   # permission 权限
   permission_handler: ^9.2.0
-  # 错误收集
-  sentry: ^6.0.1
-  # 滑块
-  carousel_slider: ^4.0.0
-  # svg
-  flutter_svg: ^1.0.3
-  # 表单验证
-  validatorless: ^1.2.1
-  # 格式化显示
-  flutter_multi_formatter: ^2.5.1
-  # Pin 输入框
-  pinput: ^2.0.2
-  # 选择
-  flutter_picker: ^2.0.2
-  # 滑块选择
-  another_xlider: ^1.0.0
   # 图片预览
   photo_view: ^0.13.0
+  # Pin 输入框
+  pinput: ^2.0.2
+  # 下拉刷新
+  pull_to_refresh: ^2.0.0
+  # 错误收集
+  sentry: ^6.0.1
+  # 分享
+  share: ^2.0.4
+  # 本地存储
+  shared_preferences: ^2.0.8
+  # 表单验证
+  validatorless: ^1.2.1
   # 媒体选择
   wechat_assets_picker: ^6.3.1
   wechat_camera_picker: ^2.6.5
-  # 国家、城市
-  country_code_picker: ^2.0.2
-  # 下拉菜单按钮
-  dropdown_button2: ^1.1.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -104,10 +102,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -119,13 +118,10 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

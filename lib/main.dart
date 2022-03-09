@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/services/index.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 import 'common/i18n/index.dart';
 import 'common/routers/index.dart';
-import 'common/style/theme.dart';
+import 'common/style/index.dart';
 import 'global.dart';
 
 Future<void> main() async {

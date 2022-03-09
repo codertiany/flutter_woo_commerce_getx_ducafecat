@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:get/get.dart';
 
 import '../api/index.dart';
@@ -13,24 +14,9 @@ class UserService extends GetxService {
   String token = '';
   final _profile = WpUserProfileRes().obs;
 
+  bool get hasToken => token.isNotEmpty;
   bool get isLogin => _isLogin.value;
   WpUserProfileRes get profile => _profile.value;
-  bool get hasToken => token.isNotEmpty;
-
-  @override
-  void onInit() {
-    super.onInit();
-    token = Storage().getString(Constants.storageToken);
-    var profileOffline = Storage().getString(Constants.storageProfile);
-    if (profileOffline.isNotEmpty) {
-      _profile(WpUserProfileRes.fromJson(jsonDecode(profileOffline)));
-    }
-  }
-
-  Future<void> setToken(String value) async {
-    await Storage().setString(Constants.storageToken, value);
-    token = value;
-  }
 
   Future<void> getProfile() async {
     if (token.isEmpty) return;
@@ -46,5 +32,20 @@ class UserService extends GetxService {
     _profile(WpUserProfileRes());
     _isLogin.value = false;
     token = '';
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    token = Storage().getString(Constants.storageToken);
+    var profileOffline = Storage().getString(Constants.storageProfile);
+    if (profileOffline.isNotEmpty) {
+      _profile(WpUserProfileRes.fromJson(jsonDecode(profileOffline)));
+    }
+  }
+
+  Future<void> setToken(String value) async {
+    await Storage().setString(Constants.storageToken, value);
+    token = value;
   }
 }
