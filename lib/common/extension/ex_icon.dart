@@ -1,4 +1,4 @@
-part of 'index.dart';
+import 'package:flutter/material.dart';
 
 /// 扩展 Icon
 extension ExIcon<T extends Icon> on T {

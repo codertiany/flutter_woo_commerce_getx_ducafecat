@@ -1,4 +1,4 @@
-part of 'index.dart';
+import 'package:flutter/material.dart';
 
 /// 扩展 List<Widget>
 extension ExListWidget<E> on List<Widget> {

@@ -1,4 +1,6 @@
-part of 'index.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 /// 手势 tap
 typedef GestureOnTapChangeCallback = void Function(bool tapState);
@@ -533,6 +535,8 @@ extension ExWidget on Widget {
         child: this,
       );
 
+  /// 语义调试
+  /// MaterialApp.showSemanticsDebugger: true,
   Widget semanticsLabel(
     String label, {
     Key? key,

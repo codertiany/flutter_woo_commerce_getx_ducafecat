@@ -1,9 +1,5 @@
 library extension;
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
-
-part 'ex_icon.dart';
-part 'ex_widget.dart';
-part 'ex_list.dart';
+export 'ex_icon.dart';
+export 'ex_widget.dart';
+export 'ex_list.dart';
