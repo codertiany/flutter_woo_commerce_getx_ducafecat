@@ -51,6 +51,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.headline5?.copyWith(
           fontSize: Get.textTheme.headline5?.fontSize?.sp,
+          fontWeight: FontWeight.bold,
         ),
         super(key: key);
 
@@ -63,6 +64,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.headline6?.copyWith(
           fontSize: 18.sp,
+          fontWeight: FontWeight.w500,
         ),
         super(key: key);
 
@@ -75,6 +77,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.headline6?.copyWith(
           fontSize: 15.sp,
+          fontWeight: FontWeight.w500,
         ),
         super(key: key);
 
@@ -87,6 +90,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 15.sp,
+          fontWeight: FontWeight.w500,
         ),
         super(key: key);
 
@@ -99,6 +103,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 12.sp,
+          fontWeight: FontWeight.w400,
         ),
         super(key: key);
 
@@ -111,6 +116,7 @@ class TextWidget extends StatelessWidget {
     this.overflow = TextOverflow.clip,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 9.sp,
+          fontWeight: FontWeight.w300,
         ),
         super(key: key);
 }
