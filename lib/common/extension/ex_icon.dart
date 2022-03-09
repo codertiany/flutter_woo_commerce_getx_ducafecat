@@ -15,7 +15,9 @@ extension ExIcon<T extends Icon> on T {
         textDirection: textDirection ?? this.textDirection,
       ) as T;
 
+  /// 尺寸
   T iconSize(double size) => copyWith(size: size);
 
+  /// 颜色
   T iconColor(Color color) => copyWith(color: color);
 }
