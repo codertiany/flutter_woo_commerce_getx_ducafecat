@@ -1,3 +1,4 @@
 library i18n;
 
-// export './xxxx.dart';
+export './locale_keys.dart';
+export './translation.dart';
