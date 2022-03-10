@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 图标组件
 class IconWidget extends StatelessWidget {
@@ -28,8 +27,8 @@ class IconWidget extends StatelessWidget {
     this.color,
   })  : icon = Image.asset(
           assetName,
-          width: width ?? size?.w,
-          height: height ?? size?.w,
+          width: width ?? size,
+          height: height ?? size,
           color: color,
           fit: BoxFit.contain,
         ),
@@ -46,8 +45,8 @@ class IconWidget extends StatelessWidget {
     this.color,
   })  : icon = SvgPicture.asset(
           assetName,
-          width: width ?? size?.w,
-          height: height ?? size?.w,
+          width: width ?? size,
+          height: height ?? size,
           color: color,
           fit: BoxFit.contain,
         ),

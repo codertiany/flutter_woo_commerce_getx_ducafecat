@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../extension/index.dart';
@@ -9,9 +8,13 @@ import 'index.dart';
 /// 按钮
 class ButtonWidget extends StatelessWidget {
   final Function()? onTap;
-  final String? text; // 文字
-  final Widget? icon; // 图标
-  final Color? color;
+  final String? text;
+  final double? textSize;
+  final Color? textColor;
+  final FontWeight? textWeight;
+
+  final Widget? textWidget;
+  final Widget? icon;
   final Color? bgColor;
   final Color? borderColor;
 
@@ -19,52 +22,92 @@ class ButtonWidget extends StatelessWidget {
     Key? key,
     this.onTap,
     this.text,
-    this.color,
+    this.textColor,
+    this.textSize,
+    this.textWeight,
+    this.textWidget,
     this.bgColor,
     this.borderColor,
     this.icon,
   }) : super(key: key);
 
   /// 主要
-  ButtonWidget.primary({
+  ButtonWidget.primary(
+    String textString, {
     Key? key,
     this.onTap,
-    this.text,
     this.icon,
-  })  : color = Get.theme.colorScheme.onPrimary,
+    this.text,
+    this.textColor,
+    this.textSize,
+    this.textWeight,
+  })  : textWidget = TextWidget.button(
+          text: textString,
+          color: Get.theme.colorScheme.onPrimary,
+        ),
         bgColor = Get.theme.colorScheme.primary,
         borderColor = Get.theme.colorScheme.primary,
         super(key: key);
 
   /// 次要
-  ButtonWidget.secondary({
+  ButtonWidget.secondary(
+    String textString, {
     Key? key,
     this.onTap,
-    this.text,
     this.icon,
-  })  : color = Get.theme.colorScheme.primary,
+    this.text,
+    this.textColor,
+    this.textSize,
+    this.textWeight,
+  })  : textWidget = TextWidget.button(
+          text: textString,
+          color: Get.theme.colorScheme.primary,
+        ),
         bgColor = Get.theme.colorScheme.onSecondary,
         borderColor = Get.theme.colorScheme.primary,
         super(key: key);
 
+  /// 文字
+  const ButtonWidget.text(
+    this.text, {
+    Key? key,
+    this.onTap,
+    this.textColor,
+    this.icon,
+    this.bgColor,
+    this.borderColor,
+    this.textWidget,
+    this.textSize,
+    this.textWeight,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<Widget> btns = [];
+    // 图标
     if (icon != null) {
       btns.add(icon!);
     }
+    // 文字
     if (text != null) {
       if (btns.isNotEmpty) {
-        btns.add(SizedBox(
-          width: AppEdge.iconText,
-        ));
+        btns.add(SizedBox(width: AppEdge.iconText));
       }
       btns.add(
-        TextWidget.button(
+        TextWidget(
           text: text!,
-          color: color,
+          size: textSize,
+          color: textColor,
+          weight: textWeight,
         ),
       );
+    }
+    // 文字组件
+    if (textWidget != null) {
+      if (btns.isNotEmpty) {
+        btns.add(SizedBox(width: AppEdge.iconText));
+      }
+      btns.add(textWidget!);
     }
 
     return btns
@@ -72,10 +115,18 @@ class ButtonWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
         )
         .decorated(
-            color: bgColor,
-            border: Border.all(
-              color: borderColor ?? Get.theme.colorScheme.primary,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(AppRadius.button)));
+          color: bgColor,
+          border: borderColor != null
+              ? Border.all(
+                  color: borderColor ?? Get.theme.colorScheme.primary,
+                )
+              : null,
+          borderRadius: BorderRadius.all(
+            Radius.circular(AppRadius.button),
+          ),
+        )
+        .gestures(
+          onTap: onTap,
+        );
   }
 }

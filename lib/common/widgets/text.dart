@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 /// 文字组件
@@ -7,9 +6,26 @@ class TextWidget extends StatelessWidget {
   final String text;
   final TextStyle? style;
   final Color? color;
+  final double? size;
+  final FontWeight? weight;
   final int? maxLines; // 行数
   final bool? softWrap; // 自动换行
   final TextOverflow? overflow; // 溢出
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style?.copyWith(
+        color: color,
+        fontSize: size,
+        fontWeight: weight,
+      ),
+      overflow: overflow,
+      maxLines: maxLines,
+      softWrap: softWrap,
+    );
+  }
 
   const TextWidget({
     Key? key,
@@ -19,6 +35,8 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   }) : super(key: key);
 
   /// 文字 - 导航
@@ -29,8 +47,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.headlineSmall?.copyWith(
-          fontSize: Get.textTheme.headlineSmall?.fontSize?.sp,
+          fontSize: Get.textTheme.headlineSmall?.fontSize,
         ),
         super(key: key);
 
@@ -42,8 +62,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.headline6?.copyWith(
-          fontSize: 14.sp,
+          fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
         super(key: key);
@@ -56,8 +78,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.headline5?.copyWith(
-          fontSize: Get.textTheme.headline5?.fontSize?.sp,
+          fontSize: Get.textTheme.headline5?.fontSize,
           fontWeight: FontWeight.bold,
         ),
         super(key: key);
@@ -70,8 +94,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.headline6?.copyWith(
-          fontSize: 18.sp,
+          fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
         super(key: key);
@@ -84,8 +110,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.headline6?.copyWith(
-          fontSize: 15.sp,
+          fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         super(key: key);
@@ -98,8 +126,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.bodyText1?.copyWith(
-          fontSize: 15.sp,
+          fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         super(key: key);
@@ -112,8 +142,10 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.bodyText1?.copyWith(
-          fontSize: 12.sp,
+          fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
         super(key: key);
@@ -126,22 +158,11 @@ class TextWidget extends StatelessWidget {
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
+    this.size,
+    this.weight,
   })  : style = Get.textTheme.bodyText1?.copyWith(
-          fontSize: 9.sp,
+          fontSize: 9,
           fontWeight: FontWeight.w300,
         ),
         super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: style?.copyWith(
-        color: color,
-      ),
-      overflow: overflow,
-      maxLines: maxLines,
-      softWrap: softWrap,
-    );
-  }
 }

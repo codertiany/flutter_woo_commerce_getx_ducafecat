@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 
 /// 手势 tap
-typedef GestureOnTapChangeCallback = void Function(bool tapState);
+typedef GestureOnTapChangeCallback = void Function<T>(T val);
 
 /// 扩展 Widget
 extension ExWidget on Widget {
@@ -448,18 +448,6 @@ extension ExWidget on Widget {
         constraints: BoxConstraints.tightFor(height: height),
       );
 
-  /// 约束 宽高
-  Widget tight({
-    double? width,
-    double? height,
-    Key? key,
-  }) =>
-      ConstrainedBox(
-        key: key,
-        child: this,
-        constraints: BoxConstraints.tightFor(width: width, height: height),
-      );
-
   /// 限制盒子 最大宽高
   Widget limitedBox({
     Key? key,
@@ -695,6 +683,18 @@ extension ExWidget on Widget {
         key: key,
         properties: SemanticsProperties(label: label),
         child: this,
+      );
+
+  /// 约束 宽高
+  Widget tight({
+    double? width,
+    double? height,
+    Key? key,
+  }) =>
+      ConstrainedBox(
+        key: key,
+        child: this,
+        constraints: BoxConstraints.tightFor(width: width, height: height),
       );
 
   /// transforms Matrix4

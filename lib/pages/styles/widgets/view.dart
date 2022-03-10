@@ -24,22 +24,30 @@ class WidgetsPage extends GetView<WidgetsController> {
     return <Widget>[
       // 主按钮
       ButtonWidget.primary(
-        text: "Buy Now",
+        "Buy Now",
       ).height(50.w),
       const Divider(),
 
       // 主按钮
       ButtonWidget.primary(
+        "Buy Now",
         icon: IconWidget.svg(AssetsSvgs.cBagSvg),
-        text: "Buy Now",
       ).height(50.w).width(200.w),
       const Divider(),
 
       // 主按钮
       ButtonWidget.secondary(
+        "Add To Cart",
         icon: IconWidget.image(AssetsImages.pCashPng),
-        text: "Add To Cart",
       ).height(50.w).width(200.w),
+      const Divider(),
+
+      // 文字按钮
+      ButtonWidget.text(
+        "文字按钮",
+        textSize: 15.sp,
+        textWeight: FontWeight.w500,
+      ),
       const Divider(),
 
       //

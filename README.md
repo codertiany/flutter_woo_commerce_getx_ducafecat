@@ -1,5 +1,19 @@
 # flutter woo commerce getx 电商客户端
 
+## 代码规范
+
+- `common` 目录下相对目录引用,这样以后复制了，能重用。
+
+```sh
+import '../extension/index.dart';
+import '../style/index.dart';
+import 'index.dart';
+```
+
+- `flutter_screenutil` 只在 `pages` 层使用，不要写入基础组件，比如 `widget` `button` ，否则写的到处都是很乱。
+
+-
+
 ## 初始包
 
 ```sh
