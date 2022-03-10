@@ -113,7 +113,7 @@ class WidgetsPage extends GetView<WidgetsController> {
       // 文字/填充 按钮
       ButtonWidget.textFilled(
         "5",
-        Get.theme.colorScheme.surfaceVariant.withOpacity(0.5),
+        bgColor: Get.theme.colorScheme.surfaceVariant.withOpacity(0.5),
         textSize: 12.sp,
       ).height(30).width(45),
       const Divider(),
@@ -121,10 +121,10 @@ class WidgetsPage extends GetView<WidgetsController> {
       // 文字/填充/圆形 按钮
       ButtonWidget.textRoundFilled(
         "5",
-        Get.theme.colorScheme.surfaceVariant.withOpacity(0.4),
-        12.w,
+        bgColor: Get.theme.colorScheme.surfaceVariant.withOpacity(0.4),
+        borderRadius: 12.w,
         textSize: 9.sp,
-      ).height(24.w).width(24.w),
+      ).tight(width: 24.w, height: 24.w),
       const Divider(),
 
       //

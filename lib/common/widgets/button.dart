@@ -7,6 +7,7 @@ import 'index.dart';
 
 /// 按钮
 class ButtonWidget extends StatelessWidget {
+  /// tap 事件
   final Function()? onTap;
 
   /// 文字字符串
@@ -162,9 +163,9 @@ class ButtonWidget extends StatelessWidget {
 
   /// 文字/填充
   ButtonWidget.textFilled(
-    String textString,
-    this.bgColor, {
+    String textString, {
     Key? key,
+    required this.bgColor,
     this.onTap,
     this.icon,
     this.text,
@@ -185,10 +186,10 @@ class ButtonWidget extends StatelessWidget {
 
   /// 文字/填充/圆形 按钮
   ButtonWidget.textRoundFilled(
-    String textString,
-    this.bgColor,
-    this.borderRadius, {
+    String textString, {
     Key? key,
+    required this.bgColor,
+    required this.borderRadius,
     this.onTap,
     this.icon,
     this.text,
