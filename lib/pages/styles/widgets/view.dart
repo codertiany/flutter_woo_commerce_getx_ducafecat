@@ -65,7 +65,20 @@ class WidgetsPage extends GetView<WidgetsController> {
           size: 30.sp,
         ),
         "Home",
+        iconTextSpace: 5.w,
+      ),
+      const Divider(),
+
+      // 图标文字按钮 - 反转
+      ButtonWidget.iconText(
+        IconWidget(
+          iconData: Icons.home,
+          size: 30.sp,
+          color: Colors.purple.shade300,
+        ),
+        "Home",
         iconTextSpace: 5,
+        reversed: true,
       ),
       const Divider(),
 

@@ -18,6 +18,7 @@ class ButtonWidget extends StatelessWidget {
   final Color? bgColor;
   final Color? borderColor;
   final double? iconTextSpace;
+  final bool? reversed; // 组件列表反转
 
   const ButtonWidget({
     Key? key,
@@ -31,6 +32,7 @@ class ButtonWidget extends StatelessWidget {
     this.borderColor,
     this.icon,
     this.iconTextSpace,
+    this.reversed,
   }) : super(key: key);
 
   /// 图标
@@ -46,6 +48,7 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
+    this.reversed,
   }) : super(key: key);
 
   /// 图标
@@ -61,6 +64,7 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
+    this.reversed,
   }) : super(key: key);
 
   /// 主要
@@ -74,6 +78,7 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
+    this.reversed,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.onPrimary,
@@ -93,6 +98,7 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
+    this.reversed,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.primary,
@@ -114,10 +120,12 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
+    this.reversed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // 组件列表
     List<Widget> btns = [];
     // 图标
     if (icon != null) {
@@ -143,6 +151,10 @@ class ButtonWidget extends StatelessWidget {
         btns.add(SizedBox(width: AppSpace.iconText));
       }
       btns.add(textWidget!);
+    }
+    // 反转
+    if (reversed == true) {
+      btns = btns.reversed.toList();
     }
 
     return btns

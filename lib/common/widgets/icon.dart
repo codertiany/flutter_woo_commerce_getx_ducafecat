@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 /// 图标组件
 class IconWidget extends StatelessWidget {
+  final IconData? iconData;
   final Widget? icon;
   final double? size;
   final double? width;
@@ -16,6 +18,7 @@ class IconWidget extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.iconData,
   }) : super(key: key);
 
   IconWidget.image(
@@ -25,6 +28,7 @@ class IconWidget extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.iconData,
   })  : icon = Image.asset(
           assetName,
           width: width ?? size,
@@ -43,6 +47,7 @@ class IconWidget extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.iconData,
   })  : icon = SvgPicture.asset(
           assetName,
           width: width ?? size,
@@ -56,6 +61,16 @@ class IconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return icon ?? Container();
+    if (icon != null) {
+      return icon!;
+    }
+    if (iconData != null) {
+      return Icon(
+        iconData,
+        size: size,
+        color: color ?? Get.theme.colorScheme.onPrimaryContainer,
+      );
+    }
+    return Container();
   }
 }
