@@ -8,18 +8,42 @@ import 'index.dart';
 /// 按钮
 class ButtonWidget extends StatelessWidget {
   final Function()? onTap;
+
+  /// 文字字符串
   final String? text;
+
+  /// 文字尺寸
   final double? textSize;
+
+  /// 文字颜色
   final Color? textColor;
+
+  /// 文字 weight
   final FontWeight? textWeight;
 
+  /// 文字组件
   final Widget? textWidget;
+
+  /// 图标组件
   final Widget? icon;
+
+  /// 背景色
   final Color? bgColor;
+
+  /// 边框色
   final Color? borderColor;
+
+  /// 边框圆角
+  final double? borderRadius;
+
+  /// 图标文字间距
   final double? iconTextSpace;
-  final TextDirection? textDirection; // 排列方向
-  final bool? isColumn; // 按 column 方式排列
+
+  /// 文字方向 左->右 ，右->左
+  final TextDirection? textDirection;
+
+  /// 方式排列 column
+  final bool? isColumn;
 
   const ButtonWidget({
     Key? key,
@@ -35,23 +59,7 @@ class ButtonWidget extends StatelessWidget {
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
-  }) : super(key: key);
-
-  /// 文字
-  const ButtonWidget.text(
-    this.text, {
-    Key? key,
-    this.onTap,
-    this.textColor,
-    this.icon,
-    this.bgColor,
-    this.borderColor,
-    this.textWidget,
-    this.textSize,
-    this.textWeight,
-    this.iconTextSpace,
-    this.textDirection,
-    this.isColumn,
+    this.borderRadius,
   }) : super(key: key);
 
   /// 图标
@@ -69,6 +77,7 @@ class ButtonWidget extends StatelessWidget {
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
+    this.borderRadius,
   }) : super(key: key);
 
   /// 图标
@@ -86,6 +95,7 @@ class ButtonWidget extends StatelessWidget {
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
+    this.borderRadius,
   }) : super(key: key);
 
   /// 主要
@@ -101,6 +111,7 @@ class ButtonWidget extends StatelessWidget {
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
+    this.borderRadius,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.onPrimary,
@@ -122,6 +133,7 @@ class ButtonWidget extends StatelessWidget {
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
+    this.borderRadius,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.primary,
@@ -129,6 +141,24 @@ class ButtonWidget extends StatelessWidget {
         bgColor = Get.theme.colorScheme.onSecondary,
         borderColor = Get.theme.colorScheme.primary,
         super(key: key);
+
+  /// 文字
+  const ButtonWidget.text(
+    this.text, {
+    Key? key,
+    this.onTap,
+    this.textColor,
+    this.icon,
+    this.bgColor,
+    this.borderColor,
+    this.textWidget,
+    this.textSize,
+    this.textWeight,
+    this.iconTextSpace,
+    this.textDirection,
+    this.isColumn,
+    this.borderRadius,
+  }) : super(key: key);
 
   /// 文字/填充
   ButtonWidget.textFilled(
@@ -145,9 +175,34 @@ class ButtonWidget extends StatelessWidget {
     this.textDirection,
     this.isColumn,
     this.borderColor,
+    this.borderRadius,
   })  : textWidget = TextWidget.button(
           text: textString,
           size: textSize,
+          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+        ),
+        super(key: key);
+
+  /// 文字/填充/圆形 按钮
+  ButtonWidget.textRoundFilled(
+    String textString,
+    this.bgColor,
+    this.borderRadius, {
+    Key? key,
+    this.onTap,
+    this.icon,
+    this.text,
+    this.textColor,
+    this.textSize,
+    this.textWeight,
+    this.iconTextSpace,
+    this.textDirection,
+    this.isColumn,
+    this.borderColor,
+  })  : textWidget = TextWidget.button(
+          text: textString,
+          size: textSize,
+          weight: FontWeight.w300,
           color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
         ),
         super(key: key);
@@ -207,7 +262,7 @@ class ButtonWidget extends StatelessWidget {
                 )
               : null,
           borderRadius: BorderRadius.all(
-            Radius.circular(AppRadius.button),
+            Radius.circular(borderRadius ?? AppRadius.button),
           ),
         )
         .gestures(

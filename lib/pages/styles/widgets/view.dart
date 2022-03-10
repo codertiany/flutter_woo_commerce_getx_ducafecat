@@ -54,6 +54,18 @@ class WidgetsPage extends GetView<WidgetsController> {
       ),
       const Divider(),
 
+      // 3 图标文字按钮 - 边框
+      ButtonWidget.iconText(
+        IconWidget.svg(
+          AssetsSvgs.cHomeSvg,
+          size: 30.sp,
+        ),
+        "Home",
+        iconTextSpace: 5.w,
+        borderColor: Get.theme.colorScheme.outline.withOpacity(0.2),
+      ).height(40).width(120),
+      const Divider(),
+
       // 4 图标文字按钮 - 反转
       ButtonWidget.iconText(
         IconWidget(
@@ -104,6 +116,15 @@ class WidgetsPage extends GetView<WidgetsController> {
         Get.theme.colorScheme.surfaceVariant.withOpacity(0.5),
         textSize: 12.sp,
       ).height(30).width(45),
+      const Divider(),
+
+      // 文字/填充/圆形 按钮
+      ButtonWidget.textRoundFilled(
+        "5",
+        Get.theme.colorScheme.surfaceVariant.withOpacity(0.4),
+        12.w,
+        textSize: 9.sp,
+      ).height(24.w).width(24.w),
       const Divider(),
 
       //
