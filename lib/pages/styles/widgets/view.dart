@@ -46,7 +46,26 @@ class WidgetsPage extends GetView<WidgetsController> {
       ButtonWidget.text(
         "文字按钮",
         textSize: 15.sp,
-        textWeight: FontWeight.w500,
+      ),
+      const Divider(),
+
+      // 图标按钮
+      ButtonWidget.icon(
+        IconWidget.svg(
+          AssetsSvgs.cHomeSvg,
+          size: 30.sp,
+        ),
+      ),
+      const Divider(),
+
+      // 图标文字按钮
+      ButtonWidget.iconText(
+        IconWidget.svg(
+          AssetsSvgs.cHomeSvg,
+          size: 30.sp,
+        ),
+        "Home",
+        iconTextSpace: 5,
       ),
       const Divider(),
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// 间距
-class AppEdge {
+class AppSpace {
   /// 卡片内 - 12 上下左右
   static double get edgeCard => 12;
 
@@ -22,5 +22,5 @@ class AppEdge {
   static double get titleContent => 10;
 
   /// 图标文字 - 15
-  static double get iconText => 15;
+  static double get iconText => 10;
 }

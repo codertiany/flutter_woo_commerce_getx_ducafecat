@@ -17,6 +17,7 @@ class ButtonWidget extends StatelessWidget {
   final Widget? icon;
   final Color? bgColor;
   final Color? borderColor;
+  final double? iconTextSpace;
 
   const ButtonWidget({
     Key? key,
@@ -29,6 +30,37 @@ class ButtonWidget extends StatelessWidget {
     this.bgColor,
     this.borderColor,
     this.icon,
+    this.iconTextSpace,
+  }) : super(key: key);
+
+  /// 图标
+  const ButtonWidget.icon(
+    this.icon, {
+    Key? key,
+    this.onTap,
+    this.textColor,
+    this.text,
+    this.bgColor,
+    this.borderColor,
+    this.textWidget,
+    this.textSize,
+    this.textWeight,
+    this.iconTextSpace,
+  }) : super(key: key);
+
+  /// 图标
+  const ButtonWidget.iconText(
+    this.icon,
+    this.text, {
+    Key? key,
+    this.onTap,
+    this.textColor,
+    this.bgColor,
+    this.borderColor,
+    this.textWidget,
+    this.textSize,
+    this.textWeight,
+    this.iconTextSpace,
   }) : super(key: key);
 
   /// 主要
@@ -41,6 +73,7 @@ class ButtonWidget extends StatelessWidget {
     this.textColor,
     this.textSize,
     this.textWeight,
+    this.iconTextSpace,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.onPrimary,
@@ -59,6 +92,7 @@ class ButtonWidget extends StatelessWidget {
     this.textColor,
     this.textSize,
     this.textWeight,
+    this.iconTextSpace,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.primary,
@@ -79,6 +113,7 @@ class ButtonWidget extends StatelessWidget {
     this.textWidget,
     this.textSize,
     this.textWeight,
+    this.iconTextSpace,
   }) : super(key: key);
 
   @override
@@ -91,21 +126,21 @@ class ButtonWidget extends StatelessWidget {
     // 文字
     if (text != null) {
       if (btns.isNotEmpty) {
-        btns.add(SizedBox(width: AppEdge.iconText));
+        btns.add(SizedBox(width: iconTextSpace ?? AppSpace.iconText));
       }
       btns.add(
         TextWidget(
           text: text!,
           size: textSize,
-          color: textColor,
-          weight: textWeight,
+          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+          weight: textWeight ?? FontWeight.w500,
         ),
       );
     }
     // 文字组件
     if (textWidget != null) {
       if (btns.isNotEmpty) {
-        btns.add(SizedBox(width: AppEdge.iconText));
+        btns.add(SizedBox(width: AppSpace.iconText));
       }
       btns.add(textWidget!);
     }
