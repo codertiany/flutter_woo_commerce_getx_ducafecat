@@ -18,7 +18,8 @@ class ButtonWidget extends StatelessWidget {
   final Color? bgColor;
   final Color? borderColor;
   final double? iconTextSpace;
-  final bool? reversed; // 组件列表反转
+  final TextDirection? textDirection; // 排列方向
+  final bool? isColumn; // 按 column 方式排列
 
   const ButtonWidget({
     Key? key,
@@ -32,7 +33,8 @@ class ButtonWidget extends StatelessWidget {
     this.borderColor,
     this.icon,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   }) : super(key: key);
 
   /// 图标
@@ -48,7 +50,8 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   }) : super(key: key);
 
   /// 图标
@@ -64,7 +67,8 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   }) : super(key: key);
 
   /// 主要
@@ -78,7 +82,8 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.onPrimary,
@@ -98,7 +103,8 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   })  : textWidget = TextWidget.button(
           text: textString,
           color: Get.theme.colorScheme.primary,
@@ -120,7 +126,8 @@ class ButtonWidget extends StatelessWidget {
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
-    this.reversed,
+    this.textDirection,
+    this.isColumn,
   }) : super(key: key);
 
   @override
@@ -134,7 +141,9 @@ class ButtonWidget extends StatelessWidget {
     // 文字
     if (text != null) {
       if (btns.isNotEmpty) {
-        btns.add(SizedBox(width: iconTextSpace ?? AppSpace.iconText));
+        if (iconTextSpace != null) {
+          btns.add(SizedBox(width: iconTextSpace));
+        }
       }
       btns.add(
         TextWidget(
@@ -152,15 +161,22 @@ class ButtonWidget extends StatelessWidget {
       }
       btns.add(textWidget!);
     }
-    // 反转
-    if (reversed == true) {
-      btns = btns.reversed.toList();
+
+    // 横向、纵向
+    Widget ws;
+    if (isColumn == true) {
+      ws = btns.toColumn(
+        mainAxisAlignment: MainAxisAlignment.center,
+        textDirection: textDirection,
+      );
+    } else {
+      ws = btns.toRow(
+        mainAxisAlignment: MainAxisAlignment.center,
+        textDirection: textDirection,
+      );
     }
 
-    return btns
-        .toRow(
-          mainAxisAlignment: MainAxisAlignment.center,
-        )
+    return ws
         .decorated(
           color: bgColor,
           border: borderColor != null
