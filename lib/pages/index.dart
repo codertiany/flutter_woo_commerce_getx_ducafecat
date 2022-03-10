@@ -1,5 +1,8 @@
 library pages;
 
+// 样式调试
+export './styles/widgets/index.dart';
+
 // 引导欢迎
 export './system/splash/index.dart';
 export './system/welcome/index.dart';

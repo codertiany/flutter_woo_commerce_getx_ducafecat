@@ -1,4 +1,7 @@
 class RouteNames {
+  // 样式调试
+  static const styleWidgets = '/style_widgets';
+
   // 系统 system
   static const splash = '/splash';
   static const welcome = '/welcome';

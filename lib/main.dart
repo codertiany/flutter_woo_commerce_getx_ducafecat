@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
 
           // 路由
-          initialRoute: RouteNames.splash,
+          initialRoute: RouteNames.styleWidgets,
           getPages: RoutePages.list,
           navigatorObservers: [RoutePages.observer],
 

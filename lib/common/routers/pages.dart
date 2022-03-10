@@ -9,6 +9,12 @@ class RoutePages {
   static List<String> history = [];
 
   static List<GetPage> list = [
+    // 样式
+    GetPage(
+      name: RouteNames.styleWidgets,
+      page: () => const WidgetsPage(),
+    ),
+
     // 无需登录
     GetPage(
       name: RouteNames.splash,

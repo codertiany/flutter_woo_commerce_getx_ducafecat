@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 class TextWidget extends StatelessWidget {
   final String text;
   final TextStyle? style;
+  final Color? color;
   final int? maxLines; // 行数
   final bool? softWrap; // 自动换行
   final TextOverflow? overflow; // 溢出
@@ -17,18 +18,8 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: style,
-      overflow: overflow,
-      maxLines: maxLines,
-      softWrap: softWrap,
-    );
-  }
 
   /// 文字 - 导航
   TextWidget.navigation({
@@ -37,8 +28,23 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.headlineSmall?.copyWith(
           fontSize: Get.textTheme.headlineSmall?.fontSize?.sp,
+        ),
+        super(key: key);
+
+  /// 文字 - 按钮
+  TextWidget.button({
+    Key? key,
+    required this.text,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+  })  : style = Get.textTheme.headline6?.copyWith(
+          fontSize: 14.sp,
+          fontWeight: FontWeight.bold,
         ),
         super(key: key);
 
@@ -49,6 +55,7 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.headline5?.copyWith(
           fontSize: Get.textTheme.headline5?.fontSize?.sp,
           fontWeight: FontWeight.bold,
@@ -62,6 +69,7 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.headline6?.copyWith(
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
@@ -75,6 +83,7 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.headline6?.copyWith(
           fontSize: 15.sp,
           fontWeight: FontWeight.w500,
@@ -88,6 +97,7 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 15.sp,
           fontWeight: FontWeight.w500,
@@ -101,6 +111,7 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 12.sp,
           fontWeight: FontWeight.w400,
@@ -114,9 +125,23 @@ class TextWidget extends StatelessWidget {
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
+    this.color,
   })  : style = Get.textTheme.bodyText1?.copyWith(
           fontSize: 9.sp,
           fontWeight: FontWeight.w300,
         ),
         super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style?.copyWith(
+        color: color,
+      ),
+      overflow: overflow,
+      maxLines: maxLines,
+      softWrap: softWrap,
+    );
+  }
 }
