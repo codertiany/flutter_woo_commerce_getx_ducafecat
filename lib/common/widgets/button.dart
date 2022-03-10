@@ -37,6 +37,23 @@ class ButtonWidget extends StatelessWidget {
     this.isColumn,
   }) : super(key: key);
 
+  /// 文字
+  const ButtonWidget.text(
+    this.text, {
+    Key? key,
+    this.onTap,
+    this.textColor,
+    this.icon,
+    this.bgColor,
+    this.borderColor,
+    this.textWidget,
+    this.textSize,
+    this.textWeight,
+    this.iconTextSpace,
+    this.textDirection,
+    this.isColumn,
+  }) : super(key: key);
+
   /// 图标
   const ButtonWidget.icon(
     this.icon, {
@@ -113,22 +130,27 @@ class ButtonWidget extends StatelessWidget {
         borderColor = Get.theme.colorScheme.primary,
         super(key: key);
 
-  /// 文字
-  const ButtonWidget.text(
-    this.text, {
+  /// 文字/填充
+  ButtonWidget.textFilled(
+    String textString,
+    this.bgColor, {
     Key? key,
     this.onTap,
-    this.textColor,
     this.icon,
-    this.bgColor,
-    this.borderColor,
-    this.textWidget,
+    this.text,
+    this.textColor,
     this.textSize,
     this.textWeight,
     this.iconTextSpace,
     this.textDirection,
     this.isColumn,
-  }) : super(key: key);
+    this.borderColor,
+  })  : textWidget = TextWidget.button(
+          text: textString,
+          size: textSize,
+          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -98,6 +98,14 @@ class WidgetsPage extends GetView<WidgetsController> {
       ).height(50.w).width(200.w),
       const Divider(),
 
+      // 文字/填充 按钮
+      ButtonWidget.textFilled(
+        "5",
+        Get.theme.colorScheme.surfaceVariant.withOpacity(0.5),
+        textSize: 12.sp,
+      ).height(30).width(45),
+      const Divider(),
+
       //
     ].toColumn();
   }
