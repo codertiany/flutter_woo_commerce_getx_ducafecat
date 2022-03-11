@@ -234,7 +234,7 @@ class ButtonWidget extends StatelessWidget {
     // 文字组件
     if (textWidget != null) {
       if (btns.isNotEmpty) {
-        btns.add(SizedBox(width: AppSpace.iconText));
+        btns.add(SizedBox(width: AppSpace.iconTextSmail));
       }
       btns.add(textWidget!);
     }

@@ -8,4 +8,7 @@ class AppRadius {
 
   /// 卡片圆角
   static double get card => 5;
+
+  /// 卡片圆角
+  static double get input => 5;
 }

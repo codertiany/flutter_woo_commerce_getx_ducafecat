@@ -128,6 +128,49 @@ class WidgetsPage extends GetView<WidgetsController> {
     ].toColumn();
   }
 
+  Widget _buildInputs() {
+    return <Widget>[
+      TextWidget.title1("输入框"),
+
+      /// 文本
+      InputWidget.text("Man T- Shirt")
+          .width(300)
+          .paddingBottom(AppSpace.listRow),
+
+      /// 文本 带边框
+      InputWidget.textBorder("带边框 > Man T- Shirt")
+          .width(300)
+          .paddingBottom(AppSpace.listRow),
+
+      /// 文本 填充
+      InputWidget.textFilled("填充 > Man T- Shirt")
+          .width(300)
+          .paddingBottom(AppSpace.listRow),
+
+      /// 图标文本 填充
+      InputWidget.iconTextFilled(
+          "图标 > Man T- Shirt",
+          IconWidget.svg(
+            AssetsSvgs.cHomeSvg,
+          )).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 后缀图标文本 填充
+      InputWidget.suffixTextFilled(
+          "后缀图标 > Man T- Shirt",
+          IconWidget.svg(
+            AssetsSvgs.cHomeSvg,
+          )).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 搜索
+      InputWidget.search(
+        "搜索 > Man T- Shirt",
+      ).width(300).paddingBottom(AppSpace.listRow),
+
+      // 分隔符
+      const Divider(),
+    ].toColumn();
+  }
+
   // 表单 Text Form
   Widget _buildTextForm() {
     return Form(
@@ -136,7 +179,7 @@ class WidgetsPage extends GetView<WidgetsController> {
         child: <Widget>[
           TextWidget.title1("表单 Text Form"),
           TextFormWidget(
-            autofocus: true,
+            // autofocus: true,
             keyboardType: TextInputType.emailAddress,
             controller: controller.unameController,
             labelText: "email",
@@ -173,6 +216,8 @@ class WidgetsPage extends GetView<WidgetsController> {
               }
             },
           ).tight(width: 100, height: 50),
+
+          // 分隔符
           const Divider(),
         ].toColumn());
   }
@@ -181,6 +226,7 @@ class WidgetsPage extends GetView<WidgetsController> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          _buildInputs(),
           _buildButtons(),
           _buildTextForm(),
         ],

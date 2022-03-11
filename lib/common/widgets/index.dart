@@ -1,6 +1,8 @@
 library widgets;
 
-export 'text.dart';
-export 'icon.dart';
 export 'button.dart';
+export 'icon.dart';
+export 'input.dart';
+export 'list_tile.dart';
+export 'text.dart';
 export 'text_form.dart';

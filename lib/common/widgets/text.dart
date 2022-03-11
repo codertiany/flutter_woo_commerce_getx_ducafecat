@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../style/index.dart';
+
 /// 文字组件
 class TextWidget extends StatelessWidget {
   final String text;
@@ -49,8 +51,8 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.headlineSmall?.copyWith(
-          fontSize: Get.textTheme.headlineSmall?.fontSize,
+  })  : style = AppTextStyles.headlineSmall?.copyWith(
+          fontSize: AppTextStyles.headlineSmall?.fontSize,
         ),
         super(key: key);
 
@@ -64,7 +66,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.headline6?.copyWith(
+  })  : style = AppTextStyles.headline6?.copyWith(
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
@@ -80,8 +82,8 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.headline5?.copyWith(
-          fontSize: Get.textTheme.headline5?.fontSize,
+  })  : style = AppTextStyles.headline5?.copyWith(
+          fontSize: AppTextStyles.headline5?.fontSize,
           fontWeight: FontWeight.bold,
         ),
         super(key: key);
@@ -96,7 +98,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.headline6?.copyWith(
+  })  : style = AppTextStyles.headline6?.copyWith(
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
@@ -112,7 +114,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.headline6?.copyWith(
+  })  : style = AppTextStyles.headline6?.copyWith(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
@@ -128,7 +130,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.bodyText1?.copyWith(
+  })  : style = AppTextStyles.bodyText1?.copyWith(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
@@ -144,7 +146,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.bodyText1?.copyWith(
+  })  : style = AppTextStyles.bodyText1?.copyWith(
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
@@ -160,7 +162,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = Get.textTheme.bodyText1?.copyWith(
+  })  : style = AppTextStyles.bodyText1?.copyWith(
           fontSize: 9,
           fontWeight: FontWeight.w300,
         ),
