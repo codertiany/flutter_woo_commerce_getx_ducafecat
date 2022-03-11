@@ -9,6 +9,13 @@ class WidgetsController extends GetxController {
   TextEditingController pwdController = TextEditingController(text: "123456");
   GlobalKey formKey = GlobalKey<FormState>();
 
+  // check box
+  bool checkVal = true;
+  void onCheckBox(bool val) {
+    checkVal = val;
+    update(["widgets"]);
+  }
+
   _initData() {
     update(["widgets"]);
   }

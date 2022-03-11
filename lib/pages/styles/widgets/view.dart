@@ -69,8 +69,8 @@ class WidgetsPage extends GetView<WidgetsController> {
 
       // 4 图标文字按钮 - 反转
       ButtonWidget.iconText(
-        IconWidget(
-          iconData: Icons.navigate_next,
+        IconWidget.icon(
+          Icons.navigate_next,
           size: 24.sp,
           color: Colors.purple.shade300,
         ),
@@ -128,6 +128,7 @@ class WidgetsPage extends GetView<WidgetsController> {
     ].toColumn();
   }
 
+  // 输入框
   Widget _buildInputs() {
     return <Widget>[
       TextWidget.title1("输入框"),
@@ -164,6 +165,26 @@ class WidgetsPage extends GetView<WidgetsController> {
       /// 搜索
       InputWidget.search(
         "搜索 > Man T- Shirt",
+      ).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 选择框
+      CheckBoxWidget(
+        value: controller.checkVal,
+        onChanged: controller.onCheckBox,
+      ).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 选择框 all
+      CheckBoxWidget.all(
+        controller.checkVal,
+        controller.onCheckBox,
+        child: TextWidget.title3("全选"),
+      ).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 选择框 single
+      CheckBoxWidget.single(
+        controller.checkVal,
+        controller.onCheckBox,
+        child: TextWidget.title3("行选择"),
       ).width(300).paddingBottom(AppSpace.listRow),
 
       // 分隔符

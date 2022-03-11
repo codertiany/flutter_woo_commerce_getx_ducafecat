@@ -22,6 +22,22 @@ class IconWidget extends StatelessWidget {
     this.iconData,
   }) : super(key: key);
 
+  IconWidget.icon(
+    this.iconData, {
+    Key? key,
+    this.size = 24,
+    this.width,
+    this.height,
+    this.color,
+  })  : icon = Icon(
+          iconData,
+          size: size,
+          color: color,
+        ),
+        super(key: key) {
+    return;
+  }
+
   IconWidget.image(
     String assetName, {
     Key? key,

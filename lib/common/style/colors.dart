@@ -10,11 +10,13 @@ class AppColors {
   /// 亮色
   static AppColorScheme light = AppColorScheme(
     button: const Color(0xFF5F84FC),
+    checkbox: const Color(0xFFF77866),
   );
 
   /// 暗色
   static AppColorScheme dark = AppColorScheme(
     button: const Color(0xFFB0C5FF),
+    checkbox: const Color(0xFFFFB4A9),
   );
 
   /// *******************************************
@@ -23,6 +25,9 @@ class AppColors {
 
   /// 按钮
   static Color get button => Get.isDarkMode ? dark.button : light.button;
+
+  /// 选择按钮
+  static Color get checkbox => Get.isDarkMode ? dark.checkbox : light.checkbox;
 
   /// *******************************************
   /// Material System
@@ -94,7 +99,11 @@ class AppColorScheme {
   /// 按钮
   final Color button;
 
+  /// 选择按钮
+  final Color checkbox;
+
   AppColorScheme({
     required this.button,
+    required this.checkbox,
   });
 }

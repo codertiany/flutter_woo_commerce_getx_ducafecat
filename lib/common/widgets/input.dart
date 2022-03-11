@@ -141,8 +141,8 @@ class InputWidget extends StatelessWidget {
     this.borderRadius = 11,
   })  : controller = TextEditingController(text: text),
         icon = icon ??
-            IconWidget(
-              iconData: Icons.search,
+            IconWidget.icon(
+              Icons.search,
               color: AppColors.outline,
             ),
         suffixIcon = <Widget>[
@@ -152,8 +152,8 @@ class InputWidget extends StatelessWidget {
             color: AppColors.surfaceVariant,
           ).paddingRight(AppSpace.iconTextSmail),
           suffixIcon ??
-              IconWidget(
-                iconData: Icons.photo_camera,
+              IconWidget.icon(
+                Icons.photo_camera,
                 color: AppColors.outline,
               )
         ].toRow().width(30),
