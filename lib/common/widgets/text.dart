@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../style/index.dart';
 
@@ -14,21 +13,6 @@ class TextWidget extends StatelessWidget {
   final bool? softWrap; // 自动换行
   final TextOverflow? overflow; // 溢出
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: style?.copyWith(
-        color: color,
-        fontSize: size,
-        fontWeight: weight,
-      ),
-      overflow: overflow,
-      maxLines: maxLines,
-      softWrap: softWrap,
-    );
-  }
-
   const TextWidget({
     Key? key,
     required this.text,
@@ -41,18 +25,51 @@ class TextWidget extends StatelessWidget {
     this.weight,
   }) : super(key: key);
 
-  /// 文字 - 导航
-  TextWidget.navigation({
+  /// 文字 - 正文1
+  TextWidget.body1(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headlineSmall?.copyWith(
-          fontSize: AppTextStyles.headlineSmall?.fontSize,
+  })  : style = AppTextStyles.bodyText1?.copyWith(
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+        super(key: key);
+
+  /// 文字 - 正文2
+  TextWidget.body2(
+    this.text, {
+    Key? key,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = AppTextStyles.bodyText1?.copyWith(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+        ),
+        super(key: key);
+
+  /// 文字 - 正文3
+  TextWidget.body3(
+    this.text, {
+    Key? key,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = AppTextStyles.bodyText1?.copyWith(
+          fontSize: 9,
+          fontWeight: FontWeight.w300,
         ),
         super(key: key);
 
@@ -69,6 +86,21 @@ class TextWidget extends StatelessWidget {
   })  : style = AppTextStyles.headline6?.copyWith(
           fontSize: 14,
           fontWeight: FontWeight.bold,
+        ),
+        super(key: key);
+
+  /// 文字 - 导航
+  TextWidget.navigation({
+    Key? key,
+    required this.text,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = AppTextStyles.headlineSmall?.copyWith(
+          fontSize: AppTextStyles.headlineSmall?.fontSize,
         ),
         super(key: key);
 
@@ -120,51 +152,18 @@ class TextWidget extends StatelessWidget {
         ),
         super(key: key);
 
-  /// 文字 - 正文1
-  TextWidget.body1(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-        ),
-        super(key: key);
-
-  /// 文字 - 正文2
-  TextWidget.body2(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-        ),
-        super(key: key);
-
-  /// 文字 - 正文3
-  TextWidget.body3(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
-          fontSize: 9,
-          fontWeight: FontWeight.w300,
-        ),
-        super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style?.copyWith(
+        color: color,
+        fontSize: size,
+        fontWeight: weight,
+      ),
+      overflow: overflow,
+      maxLines: maxLines,
+      softWrap: softWrap,
+    );
+  }
 }

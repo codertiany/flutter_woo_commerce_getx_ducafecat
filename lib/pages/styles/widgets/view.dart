@@ -177,14 +177,21 @@ class WidgetsPage extends GetView<WidgetsController> {
       CheckBoxWidget.all(
         controller.checkVal,
         controller.onCheckBox,
-        child: TextWidget.title3("全选"),
+        label: TextWidget.title3("全选"),
       ).width(300).paddingBottom(AppSpace.listRow),
 
       /// 选择框 single
       CheckBoxWidget.single(
         controller.checkVal,
         controller.onCheckBox,
-        child: TextWidget.title3("行选择"),
+        label: TextWidget.title3("行选择"),
+      ).width(300).paddingBottom(AppSpace.listRow),
+
+      /// 选择框 radio
+      CheckBoxWidget.radio(
+        controller.checkVal,
+        controller.onCheckBox,
+        label: TextWidget.body1("radio"),
       ).width(300).paddingBottom(AppSpace.listRow),
 
       // 分隔符
