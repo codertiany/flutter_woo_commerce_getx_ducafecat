@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/extension/index.dart';
+import 'package:flutter_woo_commerce_getx_ducafecat/common/style/index.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/values/index.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/widgets/index.dart';
 import 'package:get/get.dart';
+import 'package:validatorless/validatorless.dart';
 
 import 'index.dart';
 
@@ -25,14 +27,16 @@ class WidgetsPage extends GetView<WidgetsController> {
     );
   }
 
+  // 按钮
   Widget _buildButtons() {
     return <Widget>[
+      TextWidget.title1("按钮"),
+
       // 1 文字按钮
       ButtonWidget.text(
         "文字按钮",
         textSize: 15.sp,
-      ),
-      const Divider(),
+      ).paddingBottom(AppSpace.listRow),
 
       // 2 图标按钮
       ButtonWidget.icon(
@@ -40,8 +44,7 @@ class WidgetsPage extends GetView<WidgetsController> {
           AssetsSvgs.cHomeSvg,
           size: 30.sp,
         ),
-      ),
-      const Divider(),
+      ).paddingBottom(AppSpace.listRow),
 
       // 3 图标文字按钮
       ButtonWidget.iconText(
@@ -51,8 +54,7 @@ class WidgetsPage extends GetView<WidgetsController> {
         ),
         "Home",
         iconTextSpace: 5.w,
-      ),
-      const Divider(),
+      ).paddingBottom(AppSpace.listRow),
 
       // 3 图标文字按钮 - 边框
       ButtonWidget.iconText(
@@ -63,8 +65,7 @@ class WidgetsPage extends GetView<WidgetsController> {
         "Home",
         iconTextSpace: 5.w,
         borderColor: Get.theme.colorScheme.outline.withOpacity(0.2),
-      ).height(40).width(120),
-      const Divider(),
+      ).height(40).width(120).paddingBottom(AppSpace.listRow),
 
       // 4 图标文字按钮 - 反转
       ButtonWidget.iconText(
@@ -76,8 +77,7 @@ class WidgetsPage extends GetView<WidgetsController> {
         "All",
         iconTextSpace: 0,
         textDirection: TextDirection.rtl,
-      ),
-      const Divider(),
+      ).paddingBottom(AppSpace.listRow),
 
       // 5 图标文字按钮 - 纵向
       ButtonWidget.iconText(
@@ -87,36 +87,31 @@ class WidgetsPage extends GetView<WidgetsController> {
         ),
         "Home",
         isColumn: true,
-      ),
-      const Divider(),
+      ).paddingBottom(AppSpace.listRow),
 
       // primary 主按钮
       ButtonWidget.primary(
         "Buy Now",
-      ).height(50.w),
-      const Divider(),
+      ).height(50.w).paddingBottom(AppSpace.listRow),
 
       // primary 主按钮
       ButtonWidget.primary(
         "Buy Now",
         icon: IconWidget.svg(AssetsSvgs.cBagSvg),
-      ).height(50.w).width(200.w),
-      const Divider(),
+      ).height(50.w).width(200.w).paddingBottom(AppSpace.listRow),
 
       // secondary 主按钮
       ButtonWidget.secondary(
         "Add To Cart",
         icon: IconWidget.image(AssetsImages.pCashPng),
-      ).height(50.w).width(200.w),
-      const Divider(),
+      ).height(50.w).width(200.w).paddingBottom(AppSpace.listRow),
 
       // 文字/填充 按钮
       ButtonWidget.textFilled(
         "5",
         bgColor: Get.theme.colorScheme.surfaceVariant.withOpacity(0.5),
         textSize: 12.sp,
-      ).height(30).width(45),
-      const Divider(),
+      ).height(30).width(45).paddingBottom(AppSpace.listRow),
 
       // 文字/填充/圆形 按钮
       ButtonWidget.textRoundFilled(
@@ -124,18 +119,70 @@ class WidgetsPage extends GetView<WidgetsController> {
         bgColor: Get.theme.colorScheme.surfaceVariant.withOpacity(0.4),
         borderRadius: 12.w,
         textSize: 9.sp,
-      ).tight(width: 24.w, height: 24.w),
+      ).tight(width: 24.w, height: 24.w).paddingBottom(AppSpace.listRow),
+
+      // 分隔
       const Divider(),
 
       //
     ].toColumn();
   }
 
+  // 表单 Text Form
+  Widget _buildTextForm() {
+    return Form(
+        key: controller.formKey, //设置globalKey，用于后面获取FormState
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        child: <Widget>[
+          TextWidget.title1("表单 Text Form"),
+          TextFormWidget(
+            autofocus: true,
+            keyboardType: TextInputType.emailAddress,
+            controller: controller.unameController,
+            labelText: "email",
+            validator: Validatorless.multiple([
+              Validatorless.required("The field is obligatory"),
+              Validatorless.min(6,
+                  "Length cannot be less than @size".trParams({"size": "6"})),
+              Validatorless.max(
+                  18,
+                  "Length cannot be greater than @size"
+                      .trParams({"size": "18"})),
+              Validatorless.email("The field must be an email"),
+            ]),
+          ),
+          TextFormWidget(
+            controller: controller.pwdController,
+            labelText: "password",
+            isObscure: true,
+            validator: Validatorless.multiple([
+              Validatorless.required("The field is obligatory"),
+              Validatorless.min(6,
+                  "Length cannot be less than @size".trParams({"size": "6"})),
+              Validatorless.max(
+                  18,
+                  "Length cannot be greater than @size"
+                      .trParams({"size": "18"})),
+            ]),
+          ),
+          ButtonWidget.primary(
+            "submit",
+            onTap: () {
+              if ((controller.formKey.currentState as FormState).validate()) {
+                try {} finally {}
+              }
+            },
+          ).tight(width: 100, height: 50),
+          const Divider(),
+        ].toColumn());
+  }
+
   Widget _buildView() {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
         children: [
           _buildButtons(),
+          _buildTextForm(),
         ],
       ),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// 间距
 class AppSpace {
   /// 卡片内 - 12 上下左右
-  static double get edgeCard => 12;
+  static double get card => 12;
 
   /// 输入框 - 10, 20 上下，左右
   static EdgeInsets get input =>
@@ -16,11 +16,11 @@ class AppSpace {
   static double get edgePage => 16;
 
   /// 段落 - 24
-  static double get paragraph => 10;
+  static double get paragraph => 24;
 
   /// 标题内容 - 10
   static double get titleContent => 10;
 
   /// 图标文字 - 15
-  static double get iconText => 10;
+  static double get iconText => 15;
 }

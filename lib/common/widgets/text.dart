@@ -71,9 +71,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 标题1
-  TextWidget.title1({
+  TextWidget.title1(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
@@ -87,9 +87,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 标题2
-  TextWidget.title2({
+  TextWidget.title2(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
@@ -103,9 +103,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 标题3
-  TextWidget.title3({
+  TextWidget.title3(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
@@ -119,9 +119,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 正文1
-  TextWidget.body1({
+  TextWidget.body1(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
@@ -135,9 +135,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 正文2
-  TextWidget.body2({
+  TextWidget.body2(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,
@@ -151,9 +151,9 @@ class TextWidget extends StatelessWidget {
         super(key: key);
 
   /// 文字 - 正文3
-  TextWidget.body3({
+  TextWidget.body3(
+    this.text, {
     Key? key,
-    required this.text,
     this.maxLines = 1,
     this.softWrap = false,
     this.overflow = TextOverflow.clip,

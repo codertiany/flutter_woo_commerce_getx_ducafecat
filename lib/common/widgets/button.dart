@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../extension/index.dart';
 import '../style/index.dart';
@@ -113,12 +112,12 @@ class ButtonWidget extends StatelessWidget {
     this.textDirection,
     this.isColumn,
     this.borderRadius,
+    this.borderColor,
   })  : textWidget = TextWidget.button(
           text: textString,
-          color: Get.theme.colorScheme.onPrimary,
+          color: AppColors.onPrimary,
         ),
-        bgColor = Get.theme.colorScheme.primary,
-        borderColor = Get.theme.colorScheme.primary,
+        bgColor = AppColors.button,
         super(key: key);
 
   /// 次要
@@ -137,10 +136,10 @@ class ButtonWidget extends StatelessWidget {
     this.borderRadius,
   })  : textWidget = TextWidget.button(
           text: textString,
-          color: Get.theme.colorScheme.primary,
+          color: AppColors.primary,
         ),
-        bgColor = Get.theme.colorScheme.onSecondary,
-        borderColor = Get.theme.colorScheme.primary,
+        bgColor = AppColors.onSecondary,
+        borderColor = AppColors.outline,
         super(key: key);
 
   /// 文字
@@ -180,7 +179,7 @@ class ButtonWidget extends StatelessWidget {
   })  : textWidget = TextWidget.button(
           text: textString,
           size: textSize,
-          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+          color: textColor ?? AppColors.onPrimaryContainer,
         ),
         super(key: key);
 
@@ -204,7 +203,7 @@ class ButtonWidget extends StatelessWidget {
           text: textString,
           size: textSize,
           weight: FontWeight.w300,
-          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+          color: textColor ?? AppColors.onPrimaryContainer,
         ),
         super(key: key);
 
@@ -227,7 +226,7 @@ class ButtonWidget extends StatelessWidget {
         TextWidget(
           text: text!,
           size: textSize,
-          color: textColor ?? Get.theme.colorScheme.onPrimaryContainer,
+          color: textColor ?? AppColors.onPrimaryContainer,
           weight: textWeight ?? FontWeight.w500,
         ),
       );
@@ -259,7 +258,7 @@ class ButtonWidget extends StatelessWidget {
           color: bgColor,
           border: borderColor != null
               ? Border.all(
-                  color: borderColor ?? Get.theme.colorScheme.primary,
+                  color: borderColor ?? AppColors.primary,
                 )
               : null,
           borderRadius: BorderRadius.all(

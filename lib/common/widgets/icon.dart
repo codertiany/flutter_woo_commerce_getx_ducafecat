@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+
+import '../style/index.dart';
 
 /// 图标组件
 class IconWidget extends StatelessWidget {
@@ -68,7 +69,7 @@ class IconWidget extends StatelessWidget {
       return Icon(
         iconData,
         size: size,
-        color: color ?? Get.theme.colorScheme.onPrimaryContainer,
+        color: color ?? AppColors.onPrimaryContainer,
       );
     }
     return Container();
