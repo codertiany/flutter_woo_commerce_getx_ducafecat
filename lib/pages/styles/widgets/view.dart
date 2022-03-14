@@ -149,6 +149,13 @@ class WidgetsPage extends GetView<WidgetsController> {
         onTap: controller.onColorCange,
       ).paddingBottom(AppSpace.listRow),
 
+      // 标签
+      GroupListWidget.tags(
+        itemList: controller.tags,
+        values: controller.tagValues,
+        onTap: controller.onTagCange,
+      ).paddingBottom(AppSpace.listRow),
+
       const Divider(),
     ].toColumn();
   }

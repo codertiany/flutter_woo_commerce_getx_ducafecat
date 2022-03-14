@@ -18,6 +18,18 @@ class GroupListWidget extends StatelessWidget {
     this.runSpacing = 0,
   }) : super(key: key);
 
+  /// 颜色
+  factory GroupListWidget.colors({
+    Key? key,
+    Function(List<String> values)? onTap,
+    required List<KeyValueModel<String>> itemList,
+    required List<String> values,
+    double? size,
+    Color? borderSelectedColor,
+    double? spacing,
+    double? runSpacing,
+  }) = _ColorsGroup;
+
   /// 尺寸
   factory GroupListWidget.sizes({
     Key? key,
@@ -31,17 +43,21 @@ class GroupListWidget extends StatelessWidget {
     double? runSpacing,
   }) = _SizesGroup;
 
-  /// 颜色
-  factory GroupListWidget.colors({
+  /// 标签
+  factory GroupListWidget.tags({
     Key? key,
     Function(List<String> values)? onTap,
     required List<KeyValueModel<String>> itemList,
     required List<String> values,
-    double? size,
+    double? width,
+    double? height,
+    double? radius,
+    Color? bgColor,
+    Color? bgSelectedColor,
     Color? borderSelectedColor,
     double? spacing,
     double? runSpacing,
-  }) = _ColorsGroup;
+  }) = _TagsGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +66,55 @@ class GroupListWidget extends StatelessWidget {
       runSpacing: runSpacing,
     );
   }
+}
+
+/// 颜色
+class _ColorsGroup extends GroupListWidget {
+  _ColorsGroup({
+    Key? key,
+    Function(List<String> values)? onTap,
+    required List<KeyValueModel<String>> itemList,
+    required List<String> values,
+    double? size,
+    Color? borderSelectedColor,
+    double? spacing,
+    double? runSpacing,
+  }) : super(
+          key: key,
+          spacing: spacing ?? 8,
+          runSpacing: runSpacing ?? 5,
+          items: itemList.map((item) {
+            return SizedBox(
+              width: size ?? 24,
+              height: size ?? 24,
+            )
+                .decorated(
+                  color: item.key.toColor,
+                  border: values.hasValue(item.key) == true
+                      ? Border.all(
+                          color: borderSelectedColor ?? AppColors.outline,
+                          width: 2,
+                        )
+                      : null,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(size ?? 24 / 2),
+                  ),
+                )
+                .tight(width: size, height: size)
+                .gestures(
+                  onTap: onTap != null
+                      ? () {
+                          if (values.hasValue(item.key)) {
+                            values.remove(item.key);
+                          } else {
+                            values.add(item.key);
+                          }
+                          onTap(values);
+                        }
+                      : null,
+                );
+          }).toList(),
+        );
 }
 
 /// 尺寸
@@ -66,7 +131,7 @@ class _SizesGroup extends GroupListWidget {
     double? runSpacing,
   }) : super(
           key: key,
-          spacing: spacing ?? 5,
+          spacing: spacing ?? 8,
           runSpacing: runSpacing ?? 5,
           items: itemList.map((item) {
             return TextWidget.body3(
@@ -99,28 +164,34 @@ class _SizesGroup extends GroupListWidget {
         );
 }
 
-/// 颜色
-class _ColorsGroup extends GroupListWidget {
-  _ColorsGroup({
+/// 标签
+class _TagsGroup extends GroupListWidget {
+  _TagsGroup({
     Key? key,
     Function(List<String> values)? onTap,
     required List<KeyValueModel<String>> itemList,
     required List<String> values,
-    double? size,
+    double? width,
+    double? height,
+    double? radius,
+    Color? bgColor,
+    Color? bgSelectedColor,
     Color? borderSelectedColor,
     double? spacing,
     double? runSpacing,
   }) : super(
           key: key,
-          spacing: spacing ?? 5,
+          spacing: spacing ?? 8,
           runSpacing: runSpacing ?? 5,
           items: itemList.map((item) {
-            return SizedBox(
-              width: size ?? 24,
-              height: size ?? 24,
+            return TextWidget.body3(
+              item.value ?? "-",
             )
+                .center()
                 .decorated(
-                  color: item.key.toColor,
+                  color: values.hasValue(item.key) == true
+                      ? bgSelectedColor ?? AppColors.tertiaryContainer
+                      : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
                   border: values.hasValue(item.key) == true
                       ? Border.all(
                           color: borderSelectedColor ?? AppColors.outline,
@@ -128,10 +199,10 @@ class _ColorsGroup extends GroupListWidget {
                         )
                       : null,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(size ?? 24 / 2),
+                    Radius.circular(radius ?? 11),
                   ),
                 )
-                .tight(width: size, height: size)
+                .tight(width: width ?? 90, height: height ?? 18)
                 .gestures(
                   onTap: onTap != null
                       ? () {

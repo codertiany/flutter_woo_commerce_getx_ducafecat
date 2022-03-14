@@ -30,6 +30,17 @@ class WidgetsController extends GetxController {
   ];
   List<String> colorValues = ["ffb5b5"];
 
+  // color list
+  List<KeyValueModel<String>> tags = [
+    KeyValueModel<String>(key: "adidas", value: "Adidas"),
+    KeyValueModel<String>(key: "lotto", value: "Lotto"),
+    KeyValueModel<String>(key: "nike", value: "Nike"),
+    KeyValueModel<String>(key: "apex", value: "Apex"),
+    KeyValueModel<String>(key: "reebok", value: "Reebok"),
+    KeyValueModel<String>(key: "puma", value: "Puma"),
+  ];
+  List<String> tagValues = ["nike"];
+
   // check box
   bool checkVal = true;
   WidgetsController();
@@ -69,6 +80,11 @@ class WidgetsController extends GetxController {
 
   void onColorCange(List<String> values) {
     colorValues = values;
+    update(["widgets"]);
+  }
+
+  void onTagCange(List<String> values) {
+    tagValues = values;
     update(["widgets"]);
   }
 
