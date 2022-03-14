@@ -20,6 +20,16 @@ class WidgetsController extends GetxController {
   ];
   List<String> sizeValues = ["s", "l"];
 
+  // color list
+  List<KeyValueModel<String>> colors = [
+    KeyValueModel<String>(key: "ffb5b5"),
+    KeyValueModel<String>(key: "edb5ff"),
+    KeyValueModel<String>(key: "c8b5ff"),
+    KeyValueModel<String>(key: "b5ddff"),
+    KeyValueModel<String>(key: "ffdb92"),
+  ];
+  List<String> colorValues = ["ffb5b5"];
+
   // check box
   bool checkVal = true;
   WidgetsController();
@@ -54,6 +64,11 @@ class WidgetsController extends GetxController {
 
   void onSizeCange(List<String> values) {
     sizeValues = values;
+    update(["widgets"]);
+  }
+
+  void onColorCange(List<String> values) {
+    colorValues = values;
     update(["widgets"]);
   }
 

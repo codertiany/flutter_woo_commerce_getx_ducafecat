@@ -1,7 +1,7 @@
 /// key value 键值对
 class KeyValueModel<T> {
   String key;
-  T value;
+  T? value;
 
-  KeyValueModel({required this.key, required this.value});
+  KeyValueModel({required this.key, this.value});
 }

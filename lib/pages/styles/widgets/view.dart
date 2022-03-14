@@ -134,11 +134,19 @@ class WidgetsPage extends GetView<WidgetsController> {
       TextWidget.title1("分组列表"),
 
       // 尺寸
-      GroupListWidget.size(
-        sizeItemList: controller.sizes,
+      GroupListWidget.sizes(
+        itemList: controller.sizes,
         values: controller.sizeValues,
         size: 24.w,
         onTap: controller.onSizeCange,
+      ).paddingBottom(AppSpace.listRow),
+
+      // 颜色
+      GroupListWidget.colors(
+        itemList: controller.colors,
+        values: controller.colorValues,
+        size: 24.w,
+        onTap: controller.onColorCange,
       ).paddingBottom(AppSpace.listRow),
 
       const Divider(),
