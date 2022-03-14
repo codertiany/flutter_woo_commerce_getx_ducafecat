@@ -136,8 +136,9 @@ class WidgetsPage extends GetView<WidgetsController> {
       // 尺寸
       GroupListWidget.size(
         sizeItemList: controller.sizes,
-        values: const [],
-        size: 38.w,
+        values: controller.sizeValues,
+        size: 24.w,
+        onTap: controller.onSizeCange,
       ).paddingBottom(AppSpace.listRow),
 
       const Divider(),

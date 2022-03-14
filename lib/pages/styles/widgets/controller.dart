@@ -3,34 +3,43 @@ import 'package:flutter_woo_commerce_getx_ducafecat/common/models/index.dart';
 import 'package:get/get.dart';
 
 class WidgetsController extends GetxController {
-  WidgetsController();
-
   TextEditingController unameController =
       TextEditingController(text: "hans001");
+
   TextEditingController pwdController = TextEditingController(text: "123456");
   GlobalKey formKey = GlobalKey<FormState>();
 
+  // size list
   List<KeyValueModel<String>> sizes = [
     KeyValueModel<String>(key: "s", value: "S"),
     KeyValueModel<String>(key: "m", value: "M"),
     KeyValueModel<String>(key: "l", value: "L"),
-    KeyValueModel<String>(key: "2x", value: "XX"),
-    KeyValueModel<String>(key: "3x", value: "XXX"),
-    KeyValueModel<String>(key: "4x", value: "XXXX"),
+    KeyValueModel<String>(key: "2x", value: "2X"),
+    KeyValueModel<String>(key: "3x", value: "3X"),
+    KeyValueModel<String>(key: "4x", value: "4X"),
   ];
+  List<String> sizeValues = ["s", "l"];
 
   // check box
   bool checkVal = true;
+  WidgetsController();
+
+  // @override
+  // void onClose() {
+  //   super.onClose();
+  // }
+
+  @override
+  void dispose() {
+    super.dispose();
+    unameController.dispose();
+    pwdController.dispose();
+  }
+
   void onCheckBox(bool val) {
     checkVal = val;
     update(["widgets"]);
   }
-
-  _initData() {
-    update(["widgets"]);
-  }
-
-  void onTap() {}
 
   // @override
   // void onInit() {
@@ -43,15 +52,14 @@ class WidgetsController extends GetxController {
     _initData();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  void onSizeCange(List<String> values) {
+    sizeValues = values;
+    update(["widgets"]);
+  }
 
-  @override
-  void dispose() {
-    super.dispose();
-    unameController.dispose();
-    pwdController.dispose();
+  void onTap() {}
+
+  _initData() {
+    update(["widgets"]);
   }
 }

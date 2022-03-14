@@ -32,11 +32,14 @@ class GroupListWidget extends StatelessWidget {
   /// 尺寸
   factory GroupListWidget.size({
     Key? key,
+    Function(List<String> values)? onTap,
     required List<KeyValueModel<String>> sizeItemList,
     required List<String> values,
     double? size,
     Color? bgColor,
     Color? bgSelectedColor,
+    double? spacing,
+    double? runSpacing,
   }) = _SizeGroup;
 
   @override
@@ -50,37 +53,47 @@ class GroupListWidget extends StatelessWidget {
 
 /// 尺寸
 class _SizeGroup extends GroupListWidget {
-  final List<String> values;
-  final double? size;
-  final Color? bgColor;
-  final Color? bgSelectedColor;
-
   _SizeGroup({
     Key? key,
+    Function(List<String> values)? onTap,
     required List<KeyValueModel<String>> sizeItemList,
-    required this.values,
-    this.size = 24,
-    this.bgColor,
-    this.bgSelectedColor,
-    double spacing = 20,
-    double runSpacing = 10,
+    required List<String> values,
+    double? size,
+    Color? bgColor,
+    Color? bgSelectedColor,
+    double? spacing,
+    double? runSpacing,
   }) : super(
           key: key,
-          spacing: spacing,
-          runSpacing: runSpacing,
+          spacing: spacing ?? 5,
+          runSpacing: runSpacing ?? 5,
           items: sizeItemList.map((item) {
-            return TextWidget.body2(
+            return TextWidget.body3(
               item.value,
             )
                 .center()
                 .decorated(
-                  color: bgColor ?? AppColors.surfaceVariant,
+                  color: values.hasValue(item.key) == true
+                      ? bgSelectedColor ?? AppColors.tertiaryContainer
+                      : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
                   border: null,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(size! / 2),
+                    Radius.circular(size ?? 24 / 2),
                   ),
                 )
-                .tight(width: size, height: size);
+                .tight(width: size, height: size)
+                .gestures(
+                  onTap: onTap != null
+                      ? () {
+                          if (values.hasValue(item.key)) {
+                            values.remove(item.key);
+                          } else {
+                            values.add(item.key);
+                          }
+                          onTap(values);
+                        }
+                      : null,
+                );
           }).toList(),
         );
 }
