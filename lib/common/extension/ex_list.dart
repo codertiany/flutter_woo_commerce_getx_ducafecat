@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
 
+/// 扩展 List<String>
+extension ExStringListWidget<E> on List<String> {
+  /// 是否有值
+  bool hasValue(String val) {
+    if (isNotEmpty == true) {
+      if (indexWhere((element) => element == val) != -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
 /// 扩展 List<Widget>
 extension ExListWidget<E> on List<Widget> {
+  /// 转 Wrap
+  Widget toWrap({
+    Key? key,
+    double spacing = 0,
+    double runSpacing = 0,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+  }) =>
+      Wrap(
+        key: key,
+        spacing: spacing,
+        runSpacing: runSpacing,
+        textDirection: textDirection,
+        verticalDirection: verticalDirection,
+        children: this,
+      );
+
   /// 转 Column
   Widget toColumn({
     Key? key,

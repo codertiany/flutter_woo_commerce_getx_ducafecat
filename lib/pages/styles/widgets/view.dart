@@ -128,6 +128,22 @@ class WidgetsPage extends GetView<WidgetsController> {
     ].toColumn();
   }
 
+  // 按钮
+  Widget _buildGroupList() {
+    return <Widget>[
+      TextWidget.title1("分组列表"),
+
+      // 尺寸
+      GroupListWidget.size(
+        sizeItemList: controller.sizes,
+        values: const [],
+        size: 38.w,
+      ).paddingBottom(AppSpace.listRow),
+
+      const Divider(),
+    ].toColumn();
+  }
+
   // 输入框
   Widget _buildInputs() {
     return <Widget>[
@@ -254,6 +270,7 @@ class WidgetsPage extends GetView<WidgetsController> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          _buildGroupList(),
           _buildInputs(),
           _buildButtons(),
           _buildTextForm(),

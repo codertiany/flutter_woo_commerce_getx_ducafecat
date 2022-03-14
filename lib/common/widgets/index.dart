@@ -2,6 +2,7 @@ library widgets;
 
 export 'button.dart';
 export 'checkbox.dart';
+export 'group.dart';
 export 'icon.dart';
 export 'input.dart';
 export 'list_tile.dart';
