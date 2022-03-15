@@ -156,6 +156,13 @@ class WidgetsPage extends GetView<WidgetsController> {
         onTap: controller.onTagCange,
       ).paddingBottom(AppSpace.listRow),
 
+      // 星级
+      GroupListWidget.stars(
+        starNum: controller.starNum,
+        value: controller.starValue,
+        onTap: controller.onStarCange,
+      ).paddingBottom(AppSpace.listRow),
+
       const Divider(),
     ].toColumn();
   }

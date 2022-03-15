@@ -54,10 +54,24 @@ class GroupListWidget extends StatelessWidget {
     double? radius,
     Color? bgColor,
     Color? bgSelectedColor,
-    Color? borderSelectedColor,
+    // Color? borderSelectedColor,
     double? spacing,
     double? runSpacing,
   }) = _TagsGroup;
+
+  /// 星级
+  factory GroupListWidget.stars({
+    Key? key,
+    Function(int value)? onTap,
+    required int starNum,
+    required int value,
+    IconData? iconData,
+    double? size,
+    Color? color,
+    Color? selectedColor,
+    double? spacing,
+    double? runSpacing,
+  }) = _StarsGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +106,7 @@ class _ColorsGroup extends GroupListWidget {
                   color: item.key.toColor,
                   border: values.hasValue(item.key) == true
                       ? Border.all(
-                          color: borderSelectedColor ?? AppColors.outline,
+                          color: borderSelectedColor ?? AppColors.checkbox,
                           width: 2,
                         )
                       : null,
@@ -136,11 +150,14 @@ class _SizesGroup extends GroupListWidget {
           items: itemList.map((item) {
             return TextWidget.body3(
               item.value ?? "-",
+              color: values.hasValue(item.key) == true
+                  ? AppColors.onPrimary
+                  : AppColors.secondary,
             )
                 .center()
                 .decorated(
                   color: values.hasValue(item.key) == true
-                      ? bgSelectedColor ?? AppColors.tertiaryContainer
+                      ? bgSelectedColor ?? AppColors.checkbox
                       : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
                   border: null,
                   borderRadius: BorderRadius.all(
@@ -176,7 +193,7 @@ class _TagsGroup extends GroupListWidget {
     double? radius,
     Color? bgColor,
     Color? bgSelectedColor,
-    Color? borderSelectedColor,
+    // Color? borderSelectedColor,
     double? spacing,
     double? runSpacing,
   }) : super(
@@ -186,18 +203,21 @@ class _TagsGroup extends GroupListWidget {
           items: itemList.map((item) {
             return TextWidget.body3(
               item.value ?? "-",
+              color: values.hasValue(item.key) == true
+                  ? AppColors.onPrimary
+                  : AppColors.secondary,
             )
                 .center()
                 .decorated(
                   color: values.hasValue(item.key) == true
-                      ? bgSelectedColor ?? AppColors.tertiaryContainer
+                      ? bgSelectedColor ?? AppColors.checkbox
                       : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
-                  border: values.hasValue(item.key) == true
-                      ? Border.all(
-                          color: borderSelectedColor ?? AppColors.outline,
-                          width: 2,
-                        )
-                      : null,
+                  // border: values.hasValue(item.key) == true
+                  //     ? Border.all(
+                  //         color: borderSelectedColor ?? AppColors.outline,
+                  //         width: 1,
+                  //       )
+                  //     : null,
                   borderRadius: BorderRadius.all(
                     Radius.circular(radius ?? 11),
                   ),
@@ -216,5 +236,43 @@ class _TagsGroup extends GroupListWidget {
                       : null,
                 );
           }).toList(),
+        );
+}
+
+/// 星级
+class _StarsGroup extends GroupListWidget {
+  _StarsGroup({
+    Key? key,
+    Function(int value)? onTap,
+    required int starNum,
+    required int value,
+    IconData? iconData,
+    double? size,
+    Color? color,
+    Color? selectedColor,
+    double? spacing,
+    double? runSpacing,
+  }) : super(
+          key: key,
+          spacing: spacing ?? 5,
+          runSpacing: runSpacing ?? 5,
+          items: [
+            for (var i = 1; i <= starNum; i++)
+              IconWidget.icon(
+                iconData ?? Icons.star,
+                size: size ?? 12,
+                color: i <= value
+                    ? selectedColor ?? AppColors.checkbox
+                    : color ?? AppColors.surfaceVariant.withOpacity(0.5),
+              ).onTap(onTap != null
+                  ? () {
+                      if (value == 1 && i == value) {
+                        onTap(0);
+                      } else {
+                        onTap(i);
+                      }
+                    }
+                  : null),
+          ],
         );
 }

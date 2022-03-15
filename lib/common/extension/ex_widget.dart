@@ -437,6 +437,23 @@ extension ExWidget on Widget {
         child: this,
       );
 
+  /// 手势
+  Widget onTap(
+    GestureTapCallback? onTap, {
+    Key? key,
+    HitTestBehavior? behavior,
+    bool excludeFromSemantics = false,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
+      GestureDetector(
+        key: key,
+        onTap: onTap,
+        behavior: behavior,
+        excludeFromSemantics: excludeFromSemantics,
+        dragStartBehavior: dragStartBehavior,
+        child: this,
+      );
+
   /// 约束 高度
   Widget height(
     double height, {

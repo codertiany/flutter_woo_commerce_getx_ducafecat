@@ -41,6 +41,10 @@ class WidgetsController extends GetxController {
   ];
   List<String> tagValues = ["nike"];
 
+  // star
+  int starNum = 5;
+  int starValue = 3;
+
   // check box
   bool checkVal = true;
   WidgetsController();
@@ -85,6 +89,11 @@ class WidgetsController extends GetxController {
 
   void onTagCange(List<String> values) {
     tagValues = values;
+    update(["widgets"]);
+  }
+
+  void onStarCange(int value) {
+    starValue = value;
     update(["widgets"]);
   }
 
