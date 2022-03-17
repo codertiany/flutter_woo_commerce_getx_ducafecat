@@ -27,6 +27,12 @@ extension ExWidget on Widget {
   /// 对齐 右边
   Widget alignRight() => align(Alignment.centerRight);
 
+  /// 对齐 顶部
+  Widget alignTop() => align(Alignment.topCenter);
+
+  /// 对齐 底部
+  Widget alignDown() => align(Alignment.bottomCenter);
+
   // 比例布局
   Widget aspectRatio({
     Key? key,

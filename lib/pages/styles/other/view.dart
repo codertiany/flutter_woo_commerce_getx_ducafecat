@@ -28,33 +28,79 @@ class OtherPage extends GetView<OtherController> {
         quantity: controller.quantity,
       ).paddingBottom(AppSpace.listRow),
 
-      // 横向进度条
+      // 横向 状态条
       const <Widget>[
-        StepRowItem(
-          stateName: "Pending",
+        StepHorizontalItem(
+          statusName: "Pending",
           status: StepStatus.success,
         ),
-        StepRowItem(
-          stateName: "Confirmed",
+        StepHorizontalItem(
+          statusName: "Confirmed",
           status: StepStatus.success,
         ),
-        StepRowItem(
-          stateName: "Processing",
+        StepHorizontalItem(
+          statusName: "Processing",
           status: StepStatus.running,
         ),
-        StepRowItem(
-          stateName: "Picked",
+        StepHorizontalItem(
+          statusName: "Picked",
           status: StepStatus.none,
         ),
-        StepRowItem(
-          stateName: "Shipped",
+        StepHorizontalItem(
+          statusName: "Shipped",
           status: StepStatus.none,
         ),
-        StepRowItem(
-          stateName: "Delivered",
+        StepHorizontalItem(
+          statusName: "Delivered",
           status: StepStatus.none,
         ),
       ].toRow().paddingBottom(AppSpace.listRow),
+
+      // 纵向 状态条
+      const <Widget>[
+        StepVerticalItem(
+          statusName: "Delivered",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.none,
+        ),
+        StepVerticalItem(
+          statusName: "Shipped",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.none,
+        ),
+        StepVerticalItem(
+          statusName: "Picked",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.running,
+        ),
+        StepVerticalItem(
+          statusName: "Processing",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.success,
+        ),
+        StepVerticalItem(
+          statusName: "Confirm",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.success,
+        ),
+        StepVerticalItem(
+          statusName: "Pending",
+          statusDateTime: "20 Jan, 2019",
+          statusDes:
+              "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+          status: StepStatus.success,
+        ),
+      ].toColumn().paddingBottom(AppSpace.listRow),
 
       // end
     ].toColumn().center();
