@@ -21,7 +21,43 @@ class OtherPage extends GetView<OtherController> {
         values: controller.priceRange,
         onDragging: controller.onPriceRangeDragging,
       ).paddingBottom(AppSpace.listRow),
-    ].toColumn();
+
+      // 数量编辑
+      QuantityWidget(
+        onChange: controller.onQuantityChange,
+        quantity: controller.quantity,
+      ).paddingBottom(AppSpace.listRow),
+
+      // 横向进度条
+      const <Widget>[
+        StepRowItem(
+          stateName: "Pending",
+          status: StepStatus.success,
+        ),
+        StepRowItem(
+          stateName: "Confirmed",
+          status: StepStatus.success,
+        ),
+        StepRowItem(
+          stateName: "Processing",
+          status: StepStatus.running,
+        ),
+        StepRowItem(
+          stateName: "Picked",
+          status: StepStatus.none,
+        ),
+        StepRowItem(
+          stateName: "Shipped",
+          status: StepStatus.none,
+        ),
+        StepRowItem(
+          stateName: "Delivered",
+          status: StepStatus.none,
+        ),
+      ].toRow().paddingBottom(AppSpace.listRow),
+
+      // end
+    ].toColumn().center();
   }
 
   @override
