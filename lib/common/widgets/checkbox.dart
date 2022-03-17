@@ -97,13 +97,13 @@ class CheckBoxWidget extends StatelessWidget {
             IconWidget.icon(
               Icons.radio_button_unchecked,
               size: fontSize,
-              color: fontColor ?? AppColors.checkbox,
+              color: fontColor ?? AppColors.highlight,
             ),
         iconChecked = iconChecked ??
             IconWidget.icon(
               Icons.radio_button_checked,
               size: fontSize,
-              color: fontColor ?? AppColors.checkbox,
+              color: fontColor ?? AppColors.highlight,
             ),
         space = space ?? AppSpace.iconTextSmail,
         super(key: key);

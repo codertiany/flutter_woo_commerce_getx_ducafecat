@@ -6,14 +6,14 @@ class AppSpace {
   static double get card => 12;
 
   /// 输入框 - 10, 10 上下，左右
-  static EdgeInsetsGeometry get input =>
+  static EdgeInsetsGeometry get edgeInput =>
       const EdgeInsets.symmetric(vertical: 10, horizontal: 10);
 
   /// 列表行 - 10 上下
   static double get listRow => 10;
 
   /// 页面内 - 16 左右
-  static double get edgePage => 16;
+  static double get page => 16;
 
   /// 段落 - 24
   static double get paragraph => 24;

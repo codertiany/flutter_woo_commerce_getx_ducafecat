@@ -1,11 +1,24 @@
 import 'package:get/get.dart';
 
-class WidgetsController extends GetxController {
-  WidgetsController();
+class InputsController extends GetxController {
+  InputsController();
 
-  _initData() {
+  bool checkVal = true;
+  void onCheckBox(bool val) {
+    checkVal = val;
     update(["widgets"]);
   }
+
+  _initData() {
+    update(["inputs"]);
+  }
+
+  void onTap() {}
+
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void onReady() {
@@ -22,10 +35,4 @@ class WidgetsController extends GetxController {
   // void dispose() {
   //   super.dispose();
   // }
-
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-
 }

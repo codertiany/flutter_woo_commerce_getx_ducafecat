@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// 应用颜色 - 定义
+class AppColorScheme {
+  /// 按钮
+  final Color button;
+
+  /// 高亮凸显
+  final Color highlight;
+
+  AppColorScheme({
+    required this.button,
+    required this.highlight,
+  });
+}
+
 /// 应用颜色
 class AppColors {
   /// *******************************************
@@ -10,24 +24,25 @@ class AppColors {
   /// 亮色
   static AppColorScheme light = AppColorScheme(
     button: const Color(0xFF5F84FC),
-    checkbox: const Color(0xFFF77866),
+    highlight: const Color(0xFFF77866),
   );
 
   /// 暗色
   static AppColorScheme dark = AppColorScheme(
     button: const Color(0xFFB0C5FF),
-    checkbox: const Color(0xFFFFB4A9),
+    highlight: const Color(0xFFFFB4A9),
   );
 
   /// *******************************************
-  /// 自定义 应用
+  /// 自定义 其它颜色，按用途分类
   /// *******************************************
 
   /// 按钮
   static Color get button => Get.isDarkMode ? dark.button : light.button;
 
-  /// 选择按钮
-  static Color get checkbox => Get.isDarkMode ? dark.checkbox : light.checkbox;
+  /// 高亮凸显
+  static Color get highlight =>
+      Get.isDarkMode ? dark.highlight : light.highlight;
 
   /// *******************************************
   /// Material System
@@ -92,18 +107,4 @@ class AppColors {
   static Color get tertiary => Get.theme.colorScheme.tertiary;
 
   static Color get tertiaryContainer => Get.theme.colorScheme.tertiaryContainer;
-}
-
-/// 应用颜色 - 定义
-class AppColorScheme {
-  /// 按钮
-  final Color button;
-
-  /// 选择按钮
-  final Color checkbox;
-
-  AppColorScheme({
-    required this.button,
-    required this.checkbox,
-  });
 }

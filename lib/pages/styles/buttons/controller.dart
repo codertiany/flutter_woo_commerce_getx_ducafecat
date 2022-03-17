@@ -1,11 +1,18 @@
 import 'package:get/get.dart';
 
-class WidgetsController extends GetxController {
-  WidgetsController();
+class ButtonsController extends GetxController {
+  ButtonsController();
 
   _initData() {
-    update(["widgets"]);
+    update(["buttons"]);
   }
+
+  void onTap() {}
+
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void onReady() {
@@ -22,10 +29,4 @@ class WidgetsController extends GetxController {
   // void dispose() {
   //   super.dispose();
   // }
-
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-
 }

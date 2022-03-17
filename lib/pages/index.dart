@@ -2,6 +2,11 @@ library pages;
 
 // 样式调试
 export './styles/widgets/index.dart';
+export 'styles/buttons/index.dart';
+export 'styles/inputs/index.dart';
+export 'styles/group_list/index.dart';
+export 'styles/text_form/index.dart';
+export 'styles/other/index.dart';
 
 // 引导欢迎
 export './system/splash/index.dart';

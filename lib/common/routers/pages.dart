@@ -12,7 +12,23 @@ class RoutePages {
     // 样式
     GetPage(
       name: RouteNames.styleWidgets,
-      page: () => const WidgetsPage(),
+      page: () => WidgetsPage(),
+    ),
+    GetPage(
+      name: RouteNames.styleButtons,
+      page: () => const ButtonsPage(),
+    ),
+    GetPage(
+      name: RouteNames.styleInputs,
+      page: () => const InputsPage(),
+    ),
+    GetPage(
+      name: RouteNames.styleTextForm,
+      page: () => const TextFormPage(),
+    ),
+    GetPage(
+      name: RouteNames.styleOther,
+      page: () => const OtherPage(),
     ),
 
     // 无需登录

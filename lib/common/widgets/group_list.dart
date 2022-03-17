@@ -106,7 +106,7 @@ class _ColorsGroup extends GroupListWidget {
                   color: item.key.toColor,
                   border: values.hasValue(item.key) == true
                       ? Border.all(
-                          color: borderSelectedColor ?? AppColors.checkbox,
+                          color: borderSelectedColor ?? AppColors.highlight,
                           width: 2,
                         )
                       : null,
@@ -157,7 +157,7 @@ class _SizesGroup extends GroupListWidget {
                 .center()
                 .decorated(
                   color: values.hasValue(item.key) == true
-                      ? bgSelectedColor ?? AppColors.checkbox
+                      ? bgSelectedColor ?? AppColors.highlight
                       : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
                   border: null,
                   borderRadius: BorderRadius.all(
@@ -210,7 +210,7 @@ class _TagsGroup extends GroupListWidget {
                 .center()
                 .decorated(
                   color: values.hasValue(item.key) == true
-                      ? bgSelectedColor ?? AppColors.checkbox
+                      ? bgSelectedColor ?? AppColors.highlight
                       : bgColor ?? AppColors.surfaceVariant.withOpacity(0.5),
                   // border: values.hasValue(item.key) == true
                   //     ? Border.all(
@@ -262,7 +262,7 @@ class _StarsGroup extends GroupListWidget {
                 iconData ?? Icons.star,
                 size: size ?? 12,
                 color: i <= value
-                    ? selectedColor ?? AppColors.checkbox
+                    ? selectedColor ?? AppColors.highlight
                     : color ?? AppColors.surfaceVariant.withOpacity(0.5),
               ).onTap(onTap != null
                   ? () {

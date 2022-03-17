@@ -6,5 +6,6 @@ export 'group_list.dart';
 export 'icon.dart';
 export 'input.dart';
 export 'list_tile.dart';
+export 'price_range.dart';
 export 'text.dart';
 export 'text_form.dart';

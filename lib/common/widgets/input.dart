@@ -310,7 +310,7 @@ class InputWidget extends StatelessWidget {
           fontWeight: FontWeight.w300,
           color: AppColors.secondary.withOpacity(0.5),
         ),
-        contentPadding: contentPadding ?? AppSpace.input,
+        contentPadding: contentPadding ?? AppSpace.edgeInput,
         isCollapsed: true,
         isDense: true,
         filled: true,
