@@ -1,48 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-/// 应用颜色 - 定义
-class AppColorScheme {
-  /// 按钮
-  final Color button;
-
-  /// 高亮凸显
-  final Color highlight;
-
-  AppColorScheme({
-    required this.button,
-    required this.highlight,
-  });
-}
-
 /// 应用颜色
 class AppColors {
   /// *******************************************
   /// 自定义 颜色
   /// *******************************************
 
-  /// 亮色
-  static AppColorScheme light = AppColorScheme(
-    button: const Color(0xFF5F84FC),
-    highlight: const Color(0xFFF77866),
-  );
-
-  /// 暗色
-  static AppColorScheme dark = AppColorScheme(
-    button: const Color(0xFFB0C5FF),
-    highlight: const Color(0xFFFFB4A9),
-  );
-
-  /// *******************************************
-  /// 自定义 其它颜色，按用途分类
-  /// *******************************************
-
   /// 按钮
-  static Color get button => Get.isDarkMode ? dark.button : light.button;
+  static Color get button =>
+      Get.isDarkMode ? const Color(0xFF5F84FF) : const Color(0xFFB0C5FF);
 
   /// 高亮凸显
   static Color get highlight =>
-      Get.isDarkMode ? dark.highlight : light.highlight;
+      Get.isDarkMode ? const Color(0xFFF77866) : const Color(0xFFFFB4A9);
 
   /// *******************************************
   /// Material System
