@@ -4,6 +4,7 @@ export 'button.dart';
 export 'checkbox.dart';
 export 'group_list.dart';
 export 'icon.dart';
+export 'image.dart';
 export 'input.dart';
 export 'list_tile.dart';
 export 'price_range.dart';
