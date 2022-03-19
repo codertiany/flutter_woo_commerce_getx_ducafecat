@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/index.dart';
 import 'package:get/get.dart';
 
@@ -101,6 +102,52 @@ class OtherPage extends GetView<OtherController> {
           status: StepStatus.success,
         ),
       ].toColumn().paddingBottom(AppSpace.listRow),
+
+      // ListTile
+      ListTileWidget(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // 左侧按钮
+        leading: CheckBoxWidget.radio(
+          controller.radioValue,
+          controller.onChangeRadioValue,
+          fontColor: AppColors.button,
+        ),
+        // 标题
+        title: TextWidget.title3("Los Angeles, USA"),
+        subtitle: TextWidget.body2(
+          "817-234-8827",
+          weight: FontWeight.w300,
+        ),
+        description: TextWidget.body2(
+          "4008 Loving Acres Road",
+          weight: FontWeight.w300,
+        ),
+        // 右侧按钮
+        trailing: <Widget>[
+          ButtonWidget.icon(IconWidget.icon(
+            Icons.edit,
+            size: 15,
+            color: AppColors.surfaceVariant,
+          )),
+          ButtonWidget.icon(IconWidget.icon(
+            Icons.delete,
+            size: 15,
+            color: AppColors.surfaceVariant,
+          )),
+        ],
+      ).height(100.h).decorated(
+        color: AppColors.background,
+        borderRadius: BorderRadius.all(Radius.circular(5.w)),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(3, 7),
+            color: AppColors.outline.withOpacity(0.15),
+            blurRadius: 18.0,
+            spreadRadius: 0,
+            blurStyle: BlurStyle.normal,
+          ),
+        ],
+      ).paddingBottom(AppSpace.listRow)
 
       // end
     ].toColumn().center();

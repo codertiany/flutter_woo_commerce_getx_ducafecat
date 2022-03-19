@@ -19,6 +19,13 @@ class OtherController extends GetxController {
     update(["other"]);
   }
 
+  // radio
+  bool radioValue = true;
+  void onChangeRadioValue(bool val) {
+    radioValue = val;
+    update(["other"]);
+  }
+
   _initData() {
     update(["other"]);
   }

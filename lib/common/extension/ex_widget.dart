@@ -31,7 +31,7 @@ extension ExWidget on Widget {
   Widget alignTop() => align(Alignment.topCenter);
 
   /// 对齐 底部
-  Widget alignDown() => align(Alignment.bottomCenter);
+  Widget alignBottom() => align(Alignment.bottomCenter);
 
   // 比例布局
   Widget aspectRatio({
@@ -437,7 +437,7 @@ extension ExWidget on Widget {
         onScaleStart: onScaleStart,
         onScaleEnd: onScaleEnd,
         onScaleUpdate: onScaleUpdate,
-        behavior: behavior,
+        behavior: behavior ?? HitTestBehavior.opaque,
         excludeFromSemantics: excludeFromSemantics,
         dragStartBehavior: dragStartBehavior,
         child: this,
@@ -454,7 +454,24 @@ extension ExWidget on Widget {
       GestureDetector(
         key: key,
         onTap: onTap,
-        behavior: behavior,
+        behavior: behavior ?? HitTestBehavior.opaque,
+        excludeFromSemantics: excludeFromSemantics,
+        dragStartBehavior: dragStartBehavior,
+        child: this,
+      );
+
+  /// 长按手势
+  Widget onLongPress(
+    GestureTapCallback? onLongPress, {
+    Key? key,
+    HitTestBehavior? behavior,
+    bool excludeFromSemantics = false,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
+      GestureDetector(
+        key: key,
+        onLongPress: onLongPress,
+        behavior: behavior ?? HitTestBehavior.opaque,
         excludeFromSemantics: excludeFromSemantics,
         dragStartBehavior: dragStartBehavior,
         child: this,
@@ -530,6 +547,7 @@ extension ExWidget on Widget {
   /// 内间距
   Widget padding({
     Key? key,
+    EdgeInsetsGeometry? value,
     double? all,
     double? horizontal,
     double? vertical,
@@ -540,12 +558,13 @@ extension ExWidget on Widget {
   }) =>
       Padding(
         key: key,
-        padding: EdgeInsets.only(
-          top: top ?? vertical ?? all ?? 0.0,
-          bottom: bottom ?? vertical ?? all ?? 0.0,
-          left: left ?? horizontal ?? all ?? 0.0,
-          right: right ?? horizontal ?? all ?? 0.0,
-        ),
+        padding: value ??
+            EdgeInsets.only(
+              top: top ?? vertical ?? all ?? 0.0,
+              bottom: bottom ?? vertical ?? all ?? 0.0,
+              left: left ?? horizontal ?? all ?? 0.0,
+              right: right ?? horizontal ?? all ?? 0.0,
+            ),
         child: this,
       );
 
