@@ -213,18 +213,13 @@ class ButtonWidget extends StatelessWidget {
     List<Widget> btns = [];
     // 图标
     if (icon != null) {
-      btns.add(icon!);
+      btns.add(icon!.paddingRight(iconTextSpace ?? AppSpace.iconTextSmail));
     }
     // 文字
     if (text != null) {
-      if (btns.isNotEmpty) {
-        if (iconTextSpace != null) {
-          btns.add(SizedBox(width: iconTextSpace));
-        }
-      }
       btns.add(
-        TextWidget(
-          text: text!,
+        TextWidget.body1(
+          text!,
           size: textSize,
           color: textColor ?? AppColors.onPrimaryContainer,
           weight: textWeight ?? FontWeight.w500,
@@ -232,10 +227,7 @@ class ButtonWidget extends StatelessWidget {
       );
     }
     // 文字组件
-    if (textWidget != null) {
-      if (btns.isNotEmpty) {
-        btns.add(SizedBox(width: AppSpace.iconTextSmail));
-      }
+    else if (textWidget != null) {
       btns.add(textWidget!);
     }
 

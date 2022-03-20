@@ -6,6 +6,8 @@ class RouteNames {
   static const styleTextForm = '/style_text_form';
   static const styleGroupList = '/style_group_list';
   static const styleOther = '/style_other';
+  static const styleComponents = '/style_components';
+  static const styleBottomSheet = '/style_bottom_sheet';
 
   // 系统 system
   static const splash = '/splash';

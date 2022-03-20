@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/index.dart';
 
 class ImageWidget extends StatelessWidget {
@@ -12,7 +10,6 @@ class ImageWidget extends StatelessWidget {
   final double? height;
   final BoxFit? fit;
   final Widget? placeholder;
-  final Color? backgroundColor;
 
   const ImageWidget({
     Key? key,
@@ -22,7 +19,6 @@ class ImageWidget extends StatelessWidget {
     this.height,
     this.fit,
     this.placeholder,
-    this.backgroundColor,
     this.image,
   }) : super(key: key);
 
@@ -34,7 +30,6 @@ class ImageWidget extends StatelessWidget {
     this.height,
     this.fit,
     this.placeholder,
-    this.backgroundColor,
     this.image,
   }) : super(key: key);
 
@@ -46,7 +41,6 @@ class ImageWidget extends StatelessWidget {
     this.height,
     this.fit,
     this.placeholder,
-    this.backgroundColor,
     this.url,
   }) : super(key: key);
 
@@ -72,7 +66,7 @@ class ImageWidget extends StatelessWidget {
             placeholder: (context, url) => _placeholder,
             fit: fit,
             errorWidget: (context, url, error) => _error,
-            color: backgroundColor ?? AppColors.background,
+            // color: backgroundColor ?? AppColors.primary,
           ).borderRadius(all: radius)
         : image != null
             ? FadeInImage(
@@ -84,7 +78,6 @@ class ImageWidget extends StatelessWidget {
                 placeholderErrorBuilder: (_, __, ___) => _placeholder,
                 imageErrorBuilder: (_, __, ___) => _error,
               ).decorated(
-                color: backgroundColor ?? AppColors.background,
                 borderRadius: radius != null
                     ? BorderRadius.all(
                         Radius.circular(radius ?? AppRadius.card))

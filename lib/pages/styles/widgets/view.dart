@@ -24,10 +24,15 @@ class WidgetsPage extends GetView<WidgetsController> {
       title: TextWidget.body1("分组按钮"),
     ),
     ListTileWidget(
+      onTap: () => Get.toNamed(RouteNames.styleBottomSheet),
+      title: TextWidget.body1("底部弹出"),
+    ),
+    ListTileWidget(
       onTap: () => Get.toNamed(RouteNames.styleOther),
       title: TextWidget.body1("其它"),
     ),
     ListTileWidget(
+      onTap: () => Get.toNamed(RouteNames.styleComponents),
       title: TextWidget.body1("业务"),
     ),
     ListTileWidget(

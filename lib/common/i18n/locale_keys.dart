@@ -7,4 +7,11 @@ class LocaleKeys {
   static const commonSelectTips = 'common_select_tips';
   static const commonLangCodeZh = 'zh';
   static const commonLangCodeEn = 'en';
+
+  // 弹窗提示
+  static const dialogRemove = 'DIALOG_REMOVE';
+
+  // 拍照、相册
+  static const pickerTakeCamera = 'picker_take_camera';
+  static const pickerSelectAlbum = 'picker_select_album';
 }

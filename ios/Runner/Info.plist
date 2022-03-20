@@ -43,5 +43,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Requires access to the microphone to shoot video and voice to share with friends.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Requires access to the photo library to read videos and photos to share with friends.</string>
 </dict>
 </plist>

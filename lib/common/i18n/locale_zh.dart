@@ -9,4 +9,11 @@ Map<String, String> localeZh = {
   LocaleKeys.commonSelectTips: '请选择',
   LocaleKeys.commonLangCodeZh: '中文',
   LocaleKeys.commonLangCodeEn: '英文',
+
+  // 弹窗提示
+  LocaleKeys.dialogRemove: '您确定删除吗？',
+
+  // 拍照、相册
+  LocaleKeys.pickerTakeCamera: '拍照',
+  LocaleKeys.pickerSelectAlbum: '从相册中选取',
 };

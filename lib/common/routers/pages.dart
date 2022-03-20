@@ -30,6 +30,14 @@ class RoutePages {
       name: RouteNames.styleOther,
       page: () => const OtherPage(),
     ),
+    GetPage(
+      name: RouteNames.styleComponents,
+      page: () => const ComponentsPage(),
+    ),
+    GetPage(
+      name: RouteNames.styleBottomSheet,
+      page: () => const BottomSheetPage(),
+    ),
 
     // 无需登录
     GetPage(
