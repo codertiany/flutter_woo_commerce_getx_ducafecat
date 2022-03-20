@@ -223,7 +223,7 @@ class ButtonWidget extends StatelessWidget {
           size: textSize,
           color: textColor ?? AppColors.onPrimaryContainer,
           weight: textWeight ?? FontWeight.w500,
-        ),
+        ).padding(all: AppSpace.button),
       );
     }
     // 文字组件

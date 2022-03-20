@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picker/Picker.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
@@ -9,7 +8,9 @@ import '../index.dart';
 const videoDurationMin = 6;
 const videoDurationMax = 900;
 
+/// 选取器
 class ActionPicker {
+  /// 选取相册
   static Future<List<AssetEntity>?> assets({
     required BuildContext context,
     List<AssetEntity>? selected,
@@ -23,10 +24,17 @@ class ActionPicker {
     if (!privilege.result) {
       await ActionDialog.normal(
         context: context,
-        content: Text(privilege.message),
-        confirm: const Text('Setting'),
-        cancel: const Text('Not allowed'),
-        onConfirm: () => Privilege.openSettings(),
+        content: TextWidget.title3(privilege.message),
+        confirm: ButtonWidget.text(
+          "Setting",
+          bgColor: AppColors.secondaryContainer,
+          textColor: AppColors.onSecondaryContainer,
+          onTap: () => Privilege.openSettings(),
+        ),
+        cancel: TextWidget.body1(
+          "Not allowed",
+        ),
+        // onConfirm: () => Privilege.openSettings(),
       );
       return null;
     }
@@ -52,6 +60,7 @@ class ActionPicker {
     return result;
   }
 
+  /// 相机拍摄
   static Future<AssetEntity?> camera({
     required BuildContext context,
     bool enableRecording = true,
@@ -60,10 +69,17 @@ class ActionPicker {
     if (!privilege.result) {
       await ActionDialog.normal(
         context: context,
-        content: Text(privilege.message),
-        confirm: const Text('Setting'),
-        cancel: const Text('Not allowed'),
-        onConfirm: () => Privilege.openSettings(),
+        content: TextWidget.title3(privilege.message),
+        confirm: ButtonWidget.text(
+          "Setting",
+          bgColor: AppColors.secondaryContainer,
+          textColor: AppColors.onSecondaryContainer,
+          onTap: () => Privilege.openSettings(),
+        ),
+        cancel: TextWidget.body1(
+          "Not allowed",
+        ),
+        // onConfirm: () => Privilege.openSettings(),
       );
       return null;
     }
@@ -77,23 +93,5 @@ class ActionPicker {
       resolutionPreset: ResolutionPreset.veryHigh,
     );
     return result;
-  }
-
-  static Picker text({
-    required PickerAdapter adapter,
-  }) {
-    return Picker(
-      itemExtent: 40,
-      height: 270,
-      backgroundColor: Colors.transparent,
-      containerColor: Colors.transparent,
-      hideHeader: true,
-      textStyle: TextStyle(
-        fontSize: 18,
-        height: 1.2,
-        color: AppColors.surfaceVariant,
-      ),
-      adapter: adapter,
-    );
   }
 }

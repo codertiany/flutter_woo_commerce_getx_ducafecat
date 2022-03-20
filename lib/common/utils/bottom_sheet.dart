@@ -41,7 +41,7 @@ class ActionBottomSheet {
     );
   }
 
-  static Future<void> materialModal({
+  static Future<void> showMaterialModal({
     BuildContext? context,
     Widget? child,
     EdgeInsetsGeometry? contentPadding,

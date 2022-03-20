@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 /// 间距
 class AppSpace {
+  /// 按钮
+  static double get button => 5;
+
   /// 卡片内 - 12 上下左右
   static double get card => 12;
 

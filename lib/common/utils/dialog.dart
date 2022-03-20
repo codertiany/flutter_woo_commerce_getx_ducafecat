@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../index.dart';
 
+/// 对话框
 class ActionDialog {
   static Future normal({
     required BuildContext context,
@@ -22,68 +23,51 @@ class ActionDialog {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Container(
-            padding: EdgeInsets.all(AppSpace.card),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.surfaceVariant,
-                  ),
-                  child: title != null
-                      ? Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: title,
-                        )
-                      : Container(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: DefaultTextStyle(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.surfaceVariant,
-                    ),
-                    child: content ?? Text(LocaleKeys.dialogRemove.tr),
-                  ),
-                ),
-                SizedBox(height: AppSpace.card),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ButtonWidget(
-                        textWidget:
-                            cancel ?? Text(LocaleKeys.commonBottomCancel.tr),
-                        onTap: () {
-                          Get.back(closeOverlays: true);
-                          if (onCancel != null) onCancel();
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: ButtonWidget(
-                        bgColor:
-                            confirmBackgroundColor ?? AppColors.surfaceVariant,
-                        textWidget:
-                            confirm ?? Text(LocaleKeys.commonBottomConfirm.tr),
-                        onTap: () {
-                          Get.back(closeOverlays: true);
-                          if (onConfirm != null) onConfirm();
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          child: <Widget>[
+            // 标题
+            if (title != null) title.paddingBottom(AppSpace.listRow),
+
+            // 内容
+            if (content != null) content.paddingBottom(AppSpace.listRow),
+
+            // cancel confirm
+            <Widget>[
+              // cancel
+              (cancel ??
+                      ButtonWidget.text(
+                        LocaleKeys.commonBottomCancel.tr,
+                        bgColor: AppColors.secondaryContainer,
+                        textColor: AppColors.onSecondaryContainer,
+                      ))
+                  .onTap(() {
+                Get.back(closeOverlays: true);
+                if (onCancel != null) onCancel();
+              }),
+
+              // confirm
+              (confirm ??
+                      ButtonWidget.text(
+                        LocaleKeys.commonBottomConfirm.tr,
+                        bgColor: AppColors.secondaryContainer,
+                        textColor: AppColors.onSecondaryContainer,
+                      ))
+                  .onTap(() {
+                Get.back(closeOverlays: true);
+                if (onConfirm != null) onConfirm();
+              }),
+            ].toRow(mainAxisAlignment: MainAxisAlignment.spaceAround),
+
+            // end
+          ]
+              .toColumn(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+              )
+              .paddingAll(AppSpace.card)
+              .decorated(
+                color: confirmBackgroundColor ?? AppColors.background,
+                borderRadius: BorderRadius.circular(AppRadius.card),
+              ),
         );
       },
     );

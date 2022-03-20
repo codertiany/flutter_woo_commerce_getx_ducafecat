@@ -13,7 +13,7 @@ class BottomSheetPage extends GetView<BottomSheetController> {
       ListTileWidget(
         title: TextWidget.body1("拍照、相册"),
         onTap: () {
-          ActionBottomSheet.materialModal(
+          ActionBottomSheet.showMaterialModal(
             context: Get.context,
             child: PickerImageWidget(
               onTapTake: controller.onTapTake,
@@ -22,6 +22,8 @@ class BottomSheetPage extends GetView<BottomSheetController> {
           );
         },
       ),
+
+      // end
     ].toColumn();
   }
 

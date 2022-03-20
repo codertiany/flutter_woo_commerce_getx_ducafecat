@@ -3,6 +3,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'index.dart';
 
+/// 权限处理
 class Privilege {
   static Future<PrivilegeStatus> photos() async {
     var value = false;
