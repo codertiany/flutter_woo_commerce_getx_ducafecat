@@ -10,7 +10,7 @@ class GroupListPage extends GetView<GroupListController> {
 
   Widget _buildView() {
     return SingleChildScrollView(
-      child: _buildGroupList(),
+      child: _buildGroupList().paddingAll(AppSpace.card),
     );
   }
 

@@ -6,7 +6,7 @@ class InputsController extends GetxController {
   bool checkVal = true;
   void onCheckBox(bool val) {
     checkVal = val;
-    update(["widgets"]);
+    update(["inputs"]);
   }
 
   _initData() {

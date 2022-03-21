@@ -67,7 +67,7 @@ class TextFormPage extends GetView<TextFormController> {
       id: "text_form",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("表单 Text Form")),
+          appBar: AppBar(title: const Text("表单输入框")),
           body: SafeArea(
             child: _buildView(),
           ),

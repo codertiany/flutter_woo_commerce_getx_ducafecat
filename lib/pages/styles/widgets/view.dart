@@ -17,7 +17,7 @@ class WidgetsPage extends GetView<WidgetsController> {
     ),
     ListTileWidget(
       onTap: () => Get.toNamed(RouteNames.styleTextForm),
-      title: TextWidget.body1("文字表单"),
+      title: TextWidget.body1("表单输入框"),
     ),
     ListTileWidget(
       onTap: () => Get.toNamed(RouteNames.styleGroupList),

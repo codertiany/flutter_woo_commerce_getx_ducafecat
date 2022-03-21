@@ -27,6 +27,10 @@ class RoutePages {
       page: () => const TextFormPage(),
     ),
     GetPage(
+      name: RouteNames.styleGroupList,
+      page: () => const GroupListPage(),
+    ),
+    GetPage(
       name: RouteNames.styleOther,
       page: () => const OtherPage(),
     ),

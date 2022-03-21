@@ -23,6 +23,22 @@ class BottomSheetPage extends GetView<BottomSheetController> {
         },
       ),
 
+      // 性别
+      ListTileWidget(
+        title: TextWidget.body1("Genders : ${controller.genderValue?.value}"),
+        onTap: () {
+          ActionBottomSheet.showMaterialModal(
+            context: Get.context,
+            child: PickerSingleWidget(
+              title: "Genders",
+              value: controller.genderValue,
+              items: controller.genders,
+              onSelected: controller.onGenderSelected,
+            ),
+          );
+        },
+      ),
+
       // end
     ].toColumn();
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_woo_commerce_getx_ducafecat/common/index.dart';
 import 'package:get/get.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
@@ -21,6 +22,18 @@ class BottomSheetController extends GetxController {
     if (kDebugMode) {
       print(result);
     }
+  }
+
+  // 性别
+  List<KeyValueModel> genders = [
+    KeyValueModel(key: "Lady", value: "Lady"),
+    KeyValueModel(key: "Gentleman", value: "Gentleman"),
+    KeyValueModel(key: "Secret", value: "Secret"),
+  ];
+  KeyValueModel? genderValue = KeyValueModel(key: "Secret", value: "Secret");
+  onGenderSelected(KeyValueModel item) {
+    genderValue = item;
+    update(["bottom_sheet"]);
   }
 
   // @override

@@ -14,7 +14,7 @@ class ButtonsPage extends GetView<ButtonsController> {
         children: [
           _buildButtons(),
         ],
-      ),
+      ).paddingAll(AppSpace.card),
     );
   }
 

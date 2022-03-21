@@ -42,22 +42,22 @@ class GroupListController extends GetxController {
 
   void onSizeCange(List<String> values) {
     sizeValues = values;
-    update(["widgets"]);
+    update(["group_list"]);
   }
 
   void onColorCange(List<String> values) {
     colorValues = values;
-    update(["widgets"]);
+    update(["group_list"]);
   }
 
   void onTagCange(List<String> values) {
     tagValues = values;
-    update(["widgets"]);
+    update(["group_list"]);
   }
 
   void onStarCange(int value) {
     starValue = value;
-    update(["widgets"]);
+    update(["group_list"]);
   }
 
   _initData() {
