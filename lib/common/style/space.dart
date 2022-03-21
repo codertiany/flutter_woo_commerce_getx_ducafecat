@@ -15,6 +15,9 @@ class AppSpace {
   /// 列表行 - 10 上下
   static double get listRow => 10;
 
+  /// 列表项
+  static double get listItem => 5;
+
   /// 页面内 - 16 左右
   static double get page => 16;
 
