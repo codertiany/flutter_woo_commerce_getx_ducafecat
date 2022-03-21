@@ -36,6 +36,13 @@ class BottomSheetController extends GetxController {
     update(["bottom_sheet"]);
   }
 
+  // 生日
+  DateTime birthday = DateTime.now();
+  onBirthdayConfirm(DateTime val) {
+    birthday = val;
+    update(["bottom_sheet"]);
+  }
+
   // @override
   // void onInit() {
   //   super.onInit();

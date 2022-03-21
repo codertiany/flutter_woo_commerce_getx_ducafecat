@@ -39,6 +39,23 @@ class BottomSheetPage extends GetView<BottomSheetController> {
         },
       ),
 
+      // 生日
+      ListTileWidget(
+        title: TextWidget.body1(
+            "Birthday : ${controller.birthday.toDateString()}"),
+        onTap: () {
+          ActionBottomSheet.show(
+            context: Get.context,
+            child: PickerDateTimeWidget(
+              title: "Birthday",
+              value: controller.birthday,
+              maxValue: DateTime.now(),
+              onConfirm: controller.onBirthdayConfirm,
+            ),
+          );
+        },
+      ),
+
       // end
     ].toColumn();
   }

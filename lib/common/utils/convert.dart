@@ -6,28 +6,10 @@ enum NumberUnitType {
   number,
 }
 
-// 性别类型
-const genderTypeLady = 'lady';
-const genderTypeGentleman = 'gentleman';
-const genderTypeSecret = 'secret';
-
 class Convert {
   static bool toBool(String? value) {
     // return value != null && value.isNotEmpty && value != '0';
     return value == '1';
-  }
-
-  static String toGender(String? value) {
-    switch (value) {
-      case genderTypeLady:
-        return 'Lady';
-      case genderTypeGentleman:
-        return 'Gentleman';
-      case genderTypeSecret:
-        return 'Secret';
-      default:
-        return '';
-    }
   }
 
   static int toAge(String? value) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_picker/Picker.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
@@ -93,5 +94,24 @@ class ActionPicker {
       resolutionPreset: ResolutionPreset.veryHigh,
     );
     return result;
+  }
+
+  /// 文字
+  static Picker text({
+    required PickerAdapter adapter,
+  }) {
+    return Picker(
+      itemExtent: 40,
+      height: 270,
+      backgroundColor: Colors.transparent,
+      containerColor: Colors.transparent,
+      hideHeader: true,
+      textStyle: TextStyle(
+        fontSize: 18,
+        height: 1.2,
+        color: AppColors.onSurfaceVariant,
+      ),
+      adapter: adapter,
+    );
   }
 }
