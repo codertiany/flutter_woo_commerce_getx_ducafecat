@@ -3,9 +3,15 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'index.dart';
 
-/// 权限处理
+class PrivilegeResultStatus {
+  final bool result;
+  final String message;
+
+  PrivilegeResultStatus({required this.result, required this.message});
+}
+
 class Privilege {
-  static Future<PrivilegeStatus> photos() async {
+  static Future<PrivilegeResultStatus> photos() async {
     var value = false;
     if (GetPlatform.isIOS) {
       var statuses = await [Permission.photos].request();
@@ -15,13 +21,13 @@ class Privilege {
       var statuses = await [Permission.storage].request();
       value = statuses[Permission.storage] == PermissionStatus.granted;
     }
-    return PrivilegeStatus(
+    return PrivilegeResultStatus(
       result: value,
       message: value ? 'ok' : 'Please open photo gallery access',
     );
   }
 
-  static Future<PrivilegeStatus> camera() async {
+  static Future<PrivilegeResultStatus> camera() async {
     var value = false;
     var permissions = <Permission>[];
     permissions.addAll([Permission.camera, Permission.microphone]);
@@ -40,17 +46,17 @@ class Privilege {
     if (GetPlatform.isAndroid) {
       value = statuses[Permission.storage] == PermissionStatus.granted;
     }
-    return PrivilegeStatus(
+    return PrivilegeResultStatus(
       result: value,
       message: value ? 'ok' : 'Please turn on camera and microphone access',
     );
   }
 
-  static Future<PrivilegeStatus> microphone() async {
+  static Future<PrivilegeResultStatus> microphone() async {
     var value = false;
     var statuses = await [Permission.microphone].request();
     value = statuses[Permission.microphone] == PermissionStatus.granted;
-    return PrivilegeStatus(
+    return PrivilegeResultStatus(
       result: value,
       message: value ? 'ok' : 'Please turn on microphone access',
     );
@@ -76,11 +82,4 @@ class Privilege {
   static Future<bool> openSettings() async {
     return await openAppSettings();
   }
-}
-
-class PrivilegeStatus {
-  final bool result;
-  final String message;
-
-  PrivilegeStatus({required this.result, required this.message});
 }

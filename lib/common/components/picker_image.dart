@@ -59,7 +59,10 @@ class PickerImageWidget extends StatelessWidget {
       ).height(35).paddingBottom(AppSpace.listRow),
 
       // 取消
-      ButtonWidget.text(LocaleKeys.commonBottomCancel.tr).height(35),
+      ButtonWidget.text(
+        LocaleKeys.commonBottomCancel.tr,
+        onTap: () => Get.back(),
+      ).height(35),
 
       // end
     ]

@@ -5,7 +5,7 @@ export 'convert.dart';
 export 'dialog.dart';
 export 'functions.dart';
 export 'loading.dart';
-export 'permission.dart';
+export 'privilege.dart';
 export 'picker.dart';
 export 'privilege.dart';
 export 'screen.dart';
