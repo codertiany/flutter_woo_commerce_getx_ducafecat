@@ -113,12 +113,12 @@ class OtherPage extends GetView<OtherController> {
           fontColor: AppColors.button,
         ),
         // 标题
-        title: TextWidget.title3("Los Angeles, USA"),
-        subtitle: TextWidget.body2(
+        title: const TextWidget.title3("Los Angeles, USA"),
+        subtitle: const TextWidget.body2(
           "817-234-8827",
           weight: FontWeight.w300,
         ),
-        description: TextWidget.body2(
+        description: const TextWidget.body2(
           "4008 Loving Acres Road",
           weight: FontWeight.w300,
         ),

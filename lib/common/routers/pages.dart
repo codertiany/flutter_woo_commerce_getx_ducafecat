@@ -12,7 +12,7 @@ class RoutePages {
     // 样式
     GetPage(
       name: RouteNames.styleWidgets,
-      page: () => WidgetsPage(),
+      page: () => const WidgetsPage(),
     ),
     GetPage(
       name: RouteNames.styleButtons,

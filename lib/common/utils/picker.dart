@@ -32,7 +32,7 @@ class ActionPicker {
           textColor: AppColors.onSecondaryContainer,
           onTap: () => Privilege.openSettings(),
         ),
-        cancel: TextWidget.body1(
+        cancel: const TextWidget.body1(
           "Not allowed",
         ),
         // onConfirm: () => Privilege.openSettings(),
@@ -77,7 +77,7 @@ class ActionPicker {
           textColor: AppColors.onSecondaryContainer,
           onTap: () => Privilege.openSettings(),
         ),
-        cancel: TextWidget.body1(
+        cancel: const TextWidget.body1(
           "Not allowed",
         ),
         // onConfirm: () => Privilege.openSettings(),

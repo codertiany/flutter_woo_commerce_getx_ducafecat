@@ -58,10 +58,11 @@ class ConfigService extends GetxService {
     Storage().setBool(Constants.storageFirstOpen, true);
   }
 
-  void switchThemeModel() {
+  Future<void> switchThemeModel() async {
     _isDarkModel.value = !_isDarkModel.value;
     Get.changeTheme(
       _isDarkModel.value == true ? AppTheme.dark : AppTheme.light,
     );
+    await Future.delayed(const Duration(seconds: 1));
   }
 }

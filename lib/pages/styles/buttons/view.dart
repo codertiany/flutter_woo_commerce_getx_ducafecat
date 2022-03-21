@@ -24,6 +24,10 @@ class ButtonsPage extends GetView<ButtonsController> {
       ButtonWidget.text(
         "文字按钮",
         textSize: 15.sp,
+        onTap: () async {
+          await ConfigService.to.switchThemeModel();
+          controller.update(["buttons"]);
+        },
       ).paddingBottom(AppSpace.listRow),
 
       // 2 图标按钮

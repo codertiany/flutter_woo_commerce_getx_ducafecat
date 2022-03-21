@@ -179,7 +179,7 @@ class ButtonWidget extends StatelessWidget {
   })  : textWidget = TextWidget.button(
           text: textString,
           size: textSize,
-          color: textColor ?? AppColors.onPrimaryContainer,
+          color: textColor,
         ),
         super(key: key);
 
@@ -203,7 +203,7 @@ class ButtonWidget extends StatelessWidget {
           text: textString,
           size: textSize,
           weight: FontWeight.w300,
-          color: textColor ?? AppColors.onPrimaryContainer,
+          color: textColor,
         ),
         super(key: key);
 
@@ -221,7 +221,7 @@ class ButtonWidget extends StatelessWidget {
         TextWidget.body1(
           text!,
           size: textSize,
-          color: textColor ?? AppColors.onPrimaryContainer,
+          color: textColor,
           weight: textWeight ?? FontWeight.w500,
         ).padding(all: AppSpace.button),
       );

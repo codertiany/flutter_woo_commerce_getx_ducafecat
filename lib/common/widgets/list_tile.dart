@@ -74,6 +74,7 @@ class ListTileWidget extends StatelessWidget {
         .toRow(
           crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         )
+        // .backgroundColor(AppColors.background)
         .padding(value: padding)
         .onTap(onTap)
         .onLongPress(onLongPress);

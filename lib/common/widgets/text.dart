@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../style/index.dart';
-
 /// 文字组件
 class TextWidget extends StatelessWidget {
   final String text;
@@ -26,7 +24,7 @@ class TextWidget extends StatelessWidget {
   }) : super(key: key);
 
   /// 文字 - 正文1
-  TextWidget.body1(
+  const TextWidget.body1(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -35,14 +33,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
+  })  : style = const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         super(key: key);
 
   /// 文字 - 正文2
-  TextWidget.body2(
+  const TextWidget.body2(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -51,14 +49,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
+  })  : style = const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
         super(key: key);
 
   /// 文字 - 正文3
-  TextWidget.body3(
+  const TextWidget.body3(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -67,14 +65,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.bodyText1?.copyWith(
+  })  : style = const TextStyle(
           fontSize: 9,
           fontWeight: FontWeight.w300,
         ),
         super(key: key);
 
   /// 文字 - 按钮
-  TextWidget.button({
+  const TextWidget.button({
     Key? key,
     required this.text,
     this.maxLines = 1,
@@ -83,14 +81,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headline6?.copyWith(
+  })  : style = const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
         super(key: key);
 
   /// 文字 - 导航
-  TextWidget.navigation({
+  const TextWidget.navigation({
     Key? key,
     required this.text,
     this.maxLines = 1,
@@ -99,13 +97,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headlineSmall?.copyWith(
-          fontSize: AppTextStyles.headlineSmall?.fontSize,
+  })  : style = const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.w700,
         ),
         super(key: key);
 
   /// 文字 - 标题1
-  TextWidget.title1(
+  const TextWidget.title1(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -114,14 +113,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headline5?.copyWith(
-          fontSize: AppTextStyles.headline5?.fontSize,
+  })  : style = const TextStyle(
+          fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
         super(key: key);
 
   /// 文字 - 标题2
-  TextWidget.title2(
+  const TextWidget.title2(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -130,14 +129,14 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headline6?.copyWith(
-          fontSize: 18,
+  })  : style = const TextStyle(
+          fontSize: 20,
           fontWeight: FontWeight.w500,
         ),
         super(key: key);
 
   /// 文字 - 标题3
-  TextWidget.title3(
+  const TextWidget.title3(
     this.text, {
     Key? key,
     this.maxLines = 1,
@@ -146,7 +145,7 @@ class TextWidget extends StatelessWidget {
     this.color,
     this.size,
     this.weight,
-  })  : style = AppTextStyles.headline6?.copyWith(
+  })  : style = const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),

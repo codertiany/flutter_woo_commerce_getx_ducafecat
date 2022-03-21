@@ -11,7 +11,7 @@ class BottomSheetPage extends GetView<BottomSheetController> {
     return <Widget>[
       // 拍照
       ListTileWidget(
-        title: TextWidget.body1("拍照、相册"),
+        title: const TextWidget.body1("拍照、相册"),
         onTap: () {
           ActionBottomSheet.showMaterialModal(
             context: Get.context,
