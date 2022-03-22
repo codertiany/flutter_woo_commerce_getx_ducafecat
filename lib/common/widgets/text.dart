@@ -23,6 +23,54 @@ class TextWidget extends StatelessWidget {
     this.weight,
   }) : super(key: key);
 
+  /// 文字 - 标题1
+  const TextWidget.title1(
+    this.text, {
+    Key? key,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+        super(key: key);
+
+  /// 文字 - 标题2
+  const TextWidget.title2(
+    this.text, {
+    Key? key,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+        ),
+        super(key: key);
+
+  /// 文字 - 标题3
+  const TextWidget.title3(
+    this.text, {
+    Key? key,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.color,
+    this.size,
+    this.weight,
+  })  : style = const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+        super(key: key);
+
   /// 文字 - 正文1
   const TextWidget.body1(
     this.text, {
@@ -100,54 +148,6 @@ class TextWidget extends StatelessWidget {
   })  : style = const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.w700,
-        ),
-        super(key: key);
-
-  /// 文字 - 标题1
-  const TextWidget.title1(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = const TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-        super(key: key);
-
-  /// 文字 - 标题2
-  const TextWidget.title2(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-        ),
-        super(key: key);
-
-  /// 文字 - 标题3
-  const TextWidget.title3(
-    this.text, {
-    Key? key,
-    this.maxLines = 1,
-    this.softWrap = false,
-    this.overflow = TextOverflow.clip,
-    this.color,
-    this.size,
-    this.weight,
-  })  : style = const TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
         ),
         super(key: key);
 

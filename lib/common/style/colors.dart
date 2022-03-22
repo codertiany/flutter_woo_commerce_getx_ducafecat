@@ -7,10 +7,6 @@ class AppColors {
   /// 自定义 颜色
   /// *******************************************
 
-  /// 文字
-  static Color get text =>
-      Get.isDarkMode ? const Color(0xFFFFFFFF) : const Color(0xFF4C475A);
-
   /// 按钮
   static Color get button =>
       Get.isDarkMode ? const Color(0xFFB0C5FF) : const Color(0xFF5F84FF);

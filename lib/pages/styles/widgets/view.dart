@@ -26,6 +26,10 @@ class WidgetsPage extends GetView<WidgetsController> {
         title: const TextWidget.body1("分组按钮"),
       ),
       ListTileWidget(
+        onTap: controller.onDialog,
+        title: const TextWidget.body1("对话框"),
+      ),
+      ListTileWidget(
         onTap: () => Get.toNamed(RouteNames.styleBottomSheet),
         title: const TextWidget.body1("底部弹出"),
       ),
@@ -39,13 +43,6 @@ class WidgetsPage extends GetView<WidgetsController> {
       ),
 
       // 主题
-      // ListTileWidget(
-      //   onTap: controller.onThemeSelected,
-      //   title: Obx(
-      //     () => TextWidget.body1(
-      //         "主题 : ${ConfigService.to.isDarkModel ? "Dark" : "Light"}"),
-      //   ),
-      // ),
       ListTileWidget(
         onTap: controller.onThemeSelected,
         title: TextWidget.body1(
@@ -54,6 +51,7 @@ class WidgetsPage extends GetView<WidgetsController> {
 
       // 多语言
       ListTileWidget(
+        onTap: controller.onShowLanguagesBottomSheet,
         title: const TextWidget.body1("多语言"),
       ),
     ];
@@ -77,7 +75,7 @@ class WidgetsPage extends GetView<WidgetsController> {
       id: "widgets",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("样式&功能&调试")),
+          appBar: AppBar(title: Text(LocaleKeys.stylePageTitle.tr)),
           body: SafeArea(
             child: _buildView(),
           ),

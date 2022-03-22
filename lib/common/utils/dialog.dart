@@ -7,6 +7,10 @@ import '../index.dart';
 class ActionDialog {
   static Future normal({
     required BuildContext context,
+    String? strConfirm,
+    String? strCancel,
+    String? strTitle,
+    String? strContent,
     Widget? title,
     Widget? content,
     Widget? confirm,
@@ -15,6 +19,12 @@ class ActionDialog {
     Function()? onConfirm,
     Function()? onCancel,
   }) async {
+    if (strTitle != null) {
+      title = TextWidget.title3(strTitle);
+    }
+    if (strContent != null) {
+      content = TextWidget.body2(strContent);
+    }
     return await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -34,10 +44,8 @@ class ActionDialog {
             <Widget>[
               // cancel
               (cancel ??
-                      ButtonWidget.text(
-                        LocaleKeys.commonBottomCancel.tr,
-                        bgColor: AppColors.secondaryContainer,
-                        textColor: AppColors.onSecondaryContainer,
+                      TextWidget.body1(
+                        strCancel ?? LocaleKeys.commonBottomCancel.tr,
                       ))
                   .onTap(() {
                 Get.back(closeOverlays: true);
@@ -46,11 +54,14 @@ class ActionDialog {
 
               // confirm
               (confirm ??
-                      ButtonWidget.text(
-                        LocaleKeys.commonBottomConfirm.tr,
-                        bgColor: AppColors.secondaryContainer,
-                        textColor: AppColors.onSecondaryContainer,
-                      ))
+                      TextWidget.body1(
+                        strConfirm ?? LocaleKeys.commonBottomConfirm.tr,
+                        color: AppColors.onSecondaryContainer,
+                      ).paddingAll(AppSpace.button).decorated(
+                            color: AppColors.secondaryContainer,
+                            borderRadius:
+                                BorderRadius.circular(AppRadius.button),
+                          ))
                   .onTap(() {
                 Get.back(closeOverlays: true);
                 if (onConfirm != null) onConfirm();
