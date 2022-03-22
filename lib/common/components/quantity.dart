@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../style/index.dart';
-import '../extension/index.dart';
-import 'index.dart';
+import '../index.dart';
 
 /// 数量编辑
 class QuantityWidget extends StatelessWidget {

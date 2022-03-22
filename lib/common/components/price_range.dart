@@ -1,9 +1,7 @@
 import 'package:another_xlider/another_xlider.dart';
 import 'package:flutter/material.dart';
 
-import '../extension/index.dart';
-import '../style/index.dart';
-import 'index.dart';
+import '../index.dart';
 
 class PriceRangeWidget extends StatelessWidget {
   final List<double>? values; // [0, 0]

@@ -23,7 +23,7 @@ class CarouselController extends GetxController {
 
   void onPageChanged(int val, page) {
     currentIndex = val;
-    update(["carousel_home"]);
+    update(["carousel_home", "carousel_prod"]);
   }
 
   _initData() {

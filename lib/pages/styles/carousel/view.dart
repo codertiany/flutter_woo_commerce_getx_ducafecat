@@ -26,6 +26,21 @@ class CarouselPage extends GetView<CarouselController> {
           .paddingBottom(AppSpace.listRow),
 
       // 产品页滚动图
+      GetBuilder<CarouselController>(
+              init: controller,
+              id: "carousel_prod",
+              builder: (_controller) {
+                return CarouselWidget(
+                  items: _controller.imagesList,
+                  currentIndex: _controller.currentIndex,
+                  onPageChanged: _controller.onPageChanged,
+                  height: 300,
+                  indicatorCircle: false,
+                );
+              })
+          .tight(height: 300)
+          .backgroundColor(Colors.black26)
+          .paddingBottom(AppSpace.listRow),
     ].toColumn().paddingAll(AppSpace.page);
   }
 
