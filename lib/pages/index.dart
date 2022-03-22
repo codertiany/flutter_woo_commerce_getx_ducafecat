@@ -9,6 +9,7 @@ export 'styles/text_form/index.dart';
 export 'styles/other/index.dart';
 export 'styles/components/index.dart';
 export 'styles/bottom_sheet/index.dart';
+export 'styles/carousel/index.dart';
 
 // 引导欢迎
 export 'system/splash/index.dart';

@@ -8,6 +8,7 @@ class RouteNames {
   static const styleOther = '/style_other';
   static const styleComponents = '/style_components';
   static const styleBottomSheet = '/style_bottom_sheet';
+  static const styleCarousel = '/style_carousel';
 
   // 系统 system
   static const splash = '/splash';

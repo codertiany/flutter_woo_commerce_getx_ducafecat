@@ -34,6 +34,10 @@ class WidgetsPage extends GetView<WidgetsController> {
         title: const TextWidget.body1("底部弹出"),
       ),
       ListTileWidget(
+        onTap: () => Get.toNamed(RouteNames.styleCarousel),
+        title: const TextWidget.body1("滚动图"),
+      ),
+      ListTileWidget(
         onTap: () => Get.toNamed(RouteNames.styleOther),
         title: const TextWidget.body1("其它"),
       ),

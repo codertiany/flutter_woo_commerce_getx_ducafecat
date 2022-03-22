@@ -42,6 +42,10 @@ class RoutePages {
       name: RouteNames.styleBottomSheet,
       page: () => const BottomSheetPage(),
     ),
+    GetPage(
+      name: RouteNames.styleCarousel,
+      page: () => const CarouselPage(),
+    ),
 
     // 无需登录
     GetPage(
