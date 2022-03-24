@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../index.dart';
+
 /// 应用颜色
 class AppColors {
   /// *******************************************
@@ -8,12 +10,10 @@ class AppColors {
   /// *******************************************
 
   /// 按钮
-  static Color get button =>
-      Get.isDarkMode ? const Color(0xFFB0C5FF) : const Color(0xFF5F84FF);
+  static Color get button => Get.theme.colorScheme.button;
 
-  /// 高亮凸显
-  static Color get highlight =>
-      Get.isDarkMode ? const Color(0xFFFFB4A9) : const Color(0xFFF77866);
+  /// 强调
+  static Color get highlight => Get.theme.colorScheme.highlight;
 
   /// *******************************************
   /// Material System
